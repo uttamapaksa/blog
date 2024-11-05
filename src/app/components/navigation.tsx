@@ -21,7 +21,7 @@ export default function Example() {
 
   return (
     <Disclosure as="nav" className="font-[family-name:var(--font-geist-sans)] border-b-2 border-gray-100">
-      <div className="mx-auto max-w-7xl mt-1.5 px-2 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl mt-1 px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-20 items-center justify-center">
           {/* Mobile menu button*/}
           <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
