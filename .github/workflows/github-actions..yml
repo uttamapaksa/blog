@@ -1,5 +1,4 @@
 name: Uttamapaksa Blog Deploy
-run-name: Uttamapaksa blog is deploying!
 
 on:
   push:
@@ -27,5 +26,5 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.UTTAMABLOG_TOKEN }}
           publish_dir: ./out
