@@ -1,5 +1,10 @@
-## [My blog](https://uttamapaksa.github.io/)
+# [My blog](https://uttamapaksa.github.io/)
 
-This repository contains my personal study notes.
+Welcome to my personal blog.
+This blog contains my personal study notes and books I've read.
 
-This project is built with Next.js, Tailwind CSS, and TypeScript.
+### It's built with
+- **Framework :** Next.js  
+- **Language :** TypeScript  
+- **Styling :** Tailwind CSS, Headless UI, Heroicons  
+- **Content :** gray-matter, next-mdx-remote
