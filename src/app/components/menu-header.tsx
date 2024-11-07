@@ -1,4 +1,4 @@
-import { ImageType } from "@/lib/constants/types";
+import type { ImageType } from "@/lib/constants/types";
 
 export default function MenuHeader({ image }: { image: ImageType }) {
   return (

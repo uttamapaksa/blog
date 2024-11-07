@@ -1,4 +1,4 @@
-import { ImageType } from "./types";
+import type { ImageType } from "./types";
 
 export const images: Record<string, ImageType> = {
   books: {

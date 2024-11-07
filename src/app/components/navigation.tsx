@@ -20,7 +20,7 @@ export default function Example() {
   const pathname = usePathname();
 
   return (
-    <Disclosure as="nav" className="font-[family-name:var(--font-geist-sans)] border-b-2 border-gray-100">
+    <Disclosure as="nav" className="border-b-2 border-gray-100">
       <div className="mx-auto max-w-7xl mt-1 px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-20 items-center justify-center">
           {/* Mobile menu button*/}
@@ -39,8 +39,8 @@ export default function Example() {
                     key={item.name}
                     href={item.href}
                     className={classNames(
-                      'flex items-center justify-center px-5 py-2 text-sm font-medium',
-                      pathname === item.href ? 'border-b-2 border-indigo-500' : 'hover:border-b-2 hover:border-gray-200',
+                      'flex items-center justify-center px-5 pt-2 border-b-2 text-sm font-medium',
+                      pathname === item.href ? ' border-indigo-500' : 'border-transparent hover: border-b-2 hover:border-gray-300',
                     )}
                   >
                     {item.name}

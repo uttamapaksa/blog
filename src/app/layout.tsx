@@ -15,8 +15,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Uttamapaksa Blog",
-  description: "Uttamapaksa Blog",
+  title: "Uttama Blog",
+  description: "Uttama Blog",
 };
 
 export default function RootLayout({
@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`font-[family-name:var(--font-geist-sans)] ${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Navigation />
         {children}
