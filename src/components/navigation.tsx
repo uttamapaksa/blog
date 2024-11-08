@@ -32,7 +32,7 @@ export default function Navigation() {
                     key={menu.name}
                     href={menu.href}
                     className={classNames(
-                      'flex menus-center justify-center px-5 pt-2 border-b-2 text-sm font-medium',
+                      'flex items-center justify-center px-5 pt-2 border-b-2 text-sm font-medium',
                       pathname === menu.href ? ' border-indigo-500' : 'border-transparent hover: border-b-2 hover:border-gray-300',
                     )}
                   >
@@ -59,7 +59,7 @@ export default function Navigation() {
               as="a"
               href={menu.href}
               className={classNames(
-                'flex menus-center justify-center px-3 py-2 text-sm font-medium',
+                'flex items-center justify-center px-3 py-2 text-sm font-medium',
                 pathname === menu.href ? 'bg-gray-700 text-white' : 'hover:bg-gray-100',
               )}
             >
