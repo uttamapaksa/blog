@@ -1,5 +1,5 @@
-import type { ImageType } from "./lib/constants/types";
-import { images } from "@/lib/constants/images";
+import type { ImageType } from "../lib/constants/types";
+import { images } from "../lib/constants/images";
 
 const menus = [images.books, images.react, images.algorithm, images.cs]
 

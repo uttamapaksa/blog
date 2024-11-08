@@ -1,10 +1,7 @@
 import { MDXRemote } from 'next-mdx-remote/rsc';
-import { getPosts } from '@/lib/utils/posts';
-import { formattedDate } from '@/lib/utils/dates';
+import { formattedDate } from '../lib/utils/dates';
 
-export default async function MenuMain({ menu }: { menu: string }) {
-  const posts = await getPosts(menu);
-
+export default async function MenuMain({ menu, posts }) {
   return (
     <main className="mx-auto max-w-7xl px-6 py-8 sm:px-8 sm:py-12">
       <header className="ps-2 pb-6 sm:pb-8 border-b border-gray-200">

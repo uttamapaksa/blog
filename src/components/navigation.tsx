@@ -3,20 +3,13 @@
 import { usePathname } from 'next/navigation'
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-
-const navigation = [
-  { name: 'Home', href: '/' },
-  { name: 'Books', href: '/books' },
-  { name: 'React', href: '/react' },
-  { name: 'Alogrithm', href: '/algorithm' },
-  { name: 'CS', href: '/cs' },
-]
+import { menus } from '@/lib/constants/paths'
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Example() {
+export default function Navigation() {
   const pathname = usePathname();
 
   return (
@@ -34,16 +27,16 @@ export default function Example() {
           <div className="flex flex-1 items-center justify-center sm:items-stretch h-full">
             <div className="hidden sm:ml-6 sm:block">
               <div className="flex space-x-4 h-full">
-                {navigation.map((item) => (
+                {menus.map((menu) => (
                   <a
-                    key={item.name}
-                    href={item.href}
+                    key={menu.name}
+                    href={menu.href}
                     className={classNames(
-                      'flex items-center justify-center px-5 pt-2 border-b-2 text-sm font-medium',
-                      pathname === item.href ? ' border-indigo-500' : 'border-transparent hover: border-b-2 hover:border-gray-300',
+                      'flex menus-center justify-center px-5 pt-2 border-b-2 text-sm font-medium',
+                      pathname === menu.href ? ' border-indigo-500' : 'border-transparent hover: border-b-2 hover:border-gray-300',
                     )}
                   >
-                    {item.name}
+                    {menu.name}
                   </a>
                 ))}
               </div>
@@ -60,17 +53,17 @@ export default function Example() {
       {/* Mobile menu item*/}
       <DisclosurePanel className="sm:hidden">
         <div className="space-y-1 px-2 pb-2 pt-2">
-          {navigation.map((item) => (
+          {menus.map((menu) => (
             <DisclosureButton
-              key={item.name}
+              key={menu.name}
               as="a"
-              href={item.href}
+              href={menu.href}
               className={classNames(
-                'flex items-center justify-center px-3 py-2 text-sm font-medium',
-                pathname === item.href ? 'bg-gray-700 text-white' : 'hover:bg-gray-100',
+                'flex menus-center justify-center px-3 py-2 text-sm font-medium',
+                pathname === menu.href ? 'bg-gray-700 text-white' : 'hover:bg-gray-100',
               )}
             >
-              {item.name}
+              {menu.name}
             </DisclosureButton>
           ))}
         </div>

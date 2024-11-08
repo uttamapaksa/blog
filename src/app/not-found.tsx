@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { images } from '@/lib/constants/images';
+import { images } from '../lib/constants/images';
 
 export default function NotFound() {
   return (

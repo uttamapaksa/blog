@@ -3,7 +3,7 @@ import path from 'path';
 import matter from 'gray-matter';
 import type { PostType } from '../constants/types';
 
-const POSTS_PATH = 'src/app/posts'
+const POSTS_PATH = '/src/posts'
 
 export async function getPosts(menu: string): Promise<PostType[]> {
   const dirPath = path.join(process.cwd(), `${POSTS_PATH}/${menu}`);
@@ -35,16 +35,4 @@ export async function getPosts(menu: string): Promise<PostType[]> {
     console.error("Error reading posts:", error);
     return [];
   }
-}
-
-export function getPostBySlug(menu: string, slug: string) {
-  const filePath = path.join(POSTS_PATH, `${slug}.mdx`);
-  const fileContent = fs.readFileSync(filePath, 'utf-8');
-  const { data, content } = matter(fileContent);
-
-  return {
-    slug,
-    title: data.title,
-    content,
-  };
 }
