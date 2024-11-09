@@ -1,4 +1,4 @@
-export const menus = [
+export const navigations = [
   { name: 'Home', href: '/' },
   { name: 'Books', href: '/books' },
   { name: 'React', href: '/react' },

@@ -1,6 +1,6 @@
-import { MDXRemote } from 'next-mdx-remote/rsc';
-import { formattedDate } from '../lib/utils/dates';
-import { PostType } from '@/lib/constants/types';
+import Link from 'next/link';
+import type { PostType } from '@/lib/constants/types';
+import { formatDateString } from '../lib/utils/dates';
 
 export default function MenuMain({ menu, menuName, posts }) {
   return (
@@ -11,23 +11,25 @@ export default function MenuMain({ menu, menuName, posts }) {
       <section className="mx-auto mt-12 px-4 max-w-2xl min-w-60 grid grid-cols-1 gap-x-12 gap-y-16 md:mt-16 md:grid-cols-2 lg:max-w-none lg:grid-cols-3">
         {posts.map((post: PostType) => (
           <article key={post.id} className="mx-auto max-w-xl w-full flex flex-col items-start">
-            <a href={`${menu}/${post.slug}`} className="w-full h-56">
-              <img alt="post image" src={post.thumbnail} className="w-full h-full object-cover object-center rounded-md" />
-            </a>
+            <Link href={`${menu}/${post.slug}`} className="w-full h-56">
+              <img src={post.thumbnail} alt="post image" className="w-full h-full object-cover object-center rounded-md" />
+            </Link>
             <div className="flex items-center mt-6 gap-x-4 text-xs">
               <time className="text-gray-500 round-">
-                {formattedDate(post.datetime)}
+                {formatDateString(post.datetime)}
               </time>
-              <a href={post.category.href } className="rounded-xl bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">
+              <Link href={post.category.href } className="rounded-xl bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">
                 {post.category.title}
-              </a>
+              </Link>
             </div>
-            <h3 className="mt-3 text-lg/6 font-semibold text-gray-900 group-hover:text-gray-600">
-              <a href={`${menu}/${post.slug}`}>{post.title}</a>
-            </h3>
-            <div className="mt-5 line-clamp-3 text-sm/6 text-gray-600 sm:pe-20 md:pe-0">
-              <MDXRemote source={post.content} />
-            </div>
+            <Link href={`${menu}/${post.slug}`}>
+              <h3 className="mt-3 text-lg/6 font-semibold text-gray-900 group-hover:text-gray-600">
+                {post.title}
+              </h3>
+              <div className="mt-5 line-clamp-3 text-sm/6 text-gray-600 sm:pe-20 md:pe-0">
+                {post.summary}
+              </div>
+            </Link>
           </article>
         ))}
       </section>
