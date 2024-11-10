@@ -6,9 +6,9 @@ import type { PostType } from '../constants/types';
 
 const POSTS_PATH = '/src/posts'
 
-export async function getPosts(menu: string): Promise<PostType[]> {
-  const dirPath = path.join(process.cwd(), `${POSTS_PATH}/${menu}`);
+export async function getPosts(menu: string): Promise<PostType[] | null> {
   try {
+    const dirPath = path.join(process.cwd(), `${POSTS_PATH}/${menu}`);
     // const fileNames = fs.readdirSync(dirPath);
     const fileNames = await fs.promises.readdir(dirPath);
     const posts = await Promise.all(fileNames
@@ -35,13 +35,13 @@ export async function getPosts(menu: string): Promise<PostType[]> {
     return posts;
   } catch(error) {
     console.error("Error getPosts:", error);
-    return [];
+    return null;
   }
 }
 
-export async function getPostBySlug(menu: string, slug: string): Promise<PostType> {
-  const dirPath = path.join(process.cwd(), `${POSTS_PATH}/${menu}`);
+export async function getPostBySlug(menu: string, slug: string): Promise<PostType | null> {
   try {
+    const dirPath = path.join(process.cwd(), `${POSTS_PATH}/${menu}`);
     const filePath = path.join(dirPath, `${slug}.mdx`);
     const file = await fs.promises.readFile(filePath, 'utf-8');
     const { content, frontmatter } = await compileMDX<PostType>({ 
@@ -64,19 +64,10 @@ export async function getPostBySlug(menu: string, slug: string): Promise<PostTyp
       summary: frontmatter.summary,
       content,
     };
-
+    
     return post
   } catch(error) {
     console.error("Error getPostBySlug:", error);
-    return {
-      id: 0,
-      slug,
-      title: '',
-      datetime: '',
-      category: { title: '', href: '' },
-      thumbnail: '',
-      summary: '',
-      content: ''
-    };
+    return null;
   }
 }
