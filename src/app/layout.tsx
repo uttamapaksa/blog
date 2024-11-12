@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import Navigation from "./components/navigation";
+import Navigation from "../components/navigation";
 
 const geistSans = localFont({
   src: "../fonts/GeistVF.woff",
@@ -13,6 +13,23 @@ const geistMono = localFont({
   variable: "--font-geist-mono",
   weight: "100 900",
 });
+
+const InitialThemeScript = () => (
+  <script
+    dangerouslySetInnerHTML={{
+      __html: `
+        (function() {
+          const theme = localStorage.getItem('theme');
+          const darkMode = theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          if (darkMode) {
+            document.documentElement.classList.add('dark');
+            localStorage.setItem('theme', 'dark');
+          }
+        })();
+      `,
+    }}
+  />
+);
 
 export const metadata: Metadata = {
   title: "Uttama Blog",
@@ -29,6 +46,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <InitialThemeScript />
         <Navigation />
         {children}
       </body>
