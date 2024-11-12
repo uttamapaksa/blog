@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { cookies } from "next/headers";
 import localFont from "next/font/local";
 import "./globals.css";
 import Navigation from "../components/navigation";
@@ -14,39 +15,24 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
-const InitialThemeScript = () => (
-  <script
-    dangerouslySetInnerHTML={{
-      __html: `
-        (function() {
-          const theme = localStorage.getItem('theme');
-          const darkMode = theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches);
-          if (darkMode) {
-            document.documentElement.classList.add('dark');
-            localStorage.setItem('theme', 'dark');
-          }
-        })();
-      `,
-    }}
-  />
-);
-
 export const metadata: Metadata = {
   title: "Uttama Blog",
   description: "Uttama Blog",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  const cookieStore = await cookies();
+  const themeCookie = cookieStore.get('theme')?.value;
+  const theme = themeCookie === 'dark' ? 'dark' : 'light';
+
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <InitialThemeScript />
+    <html lang="en" className={theme}>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <Navigation />
         {children}
       </body>

@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { compileMDX } from "next-mdx-remote/rsc";
 import remarkGfm from 'remark-gfm';
+import rehypePrettyCode from 'rehype-pretty-code';
 import type { PostType } from '../constants/types';
 
 const POSTS_PATH = '/src/posts'
@@ -50,6 +51,7 @@ export async function getPostBySlug(menu: string, slug: string): Promise<PostTyp
         parseFrontmatter: true,
         mdxOptions: {
           remarkPlugins: [remarkGfm],
+          rehypePlugins: [[rehypePrettyCode, { theme: 'dark-plus' }]],
           format: 'mdx'
         }
       }

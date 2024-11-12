@@ -10,13 +10,14 @@ export default function Navigation() {
   const pathname = usePathname();
   const currHref = '/' + pathname.split('/')[1]
   const toggleDarkMode = () => {
-    const prevTheme = localStorage.getItem('theme');
+    const themeCookie = document.cookie.split('; ').find(row => row.startsWith('theme='));
+    const prevTheme = themeCookie ? themeCookie.split('=')[1] : 'light';
     if (prevTheme === 'dark') {
       document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
+      document.cookie = 'theme=light; max-age=604800; path=/; secure';
     } else {
       document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
+      document.cookie = 'theme=dark; max-age=604800; path=/; secure';
     }
   }
 
