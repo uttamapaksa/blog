@@ -1,7 +1,13 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
+import { menuSlugParams } from '@/lib/constants/params';
 import { getPostBySlug } from '@/lib/utils/posts';
 import { formatDateString } from '@/lib/utils/dates';
+
+export function generateStaticParams() {
+  return menuSlugParams;
+}
 
 export default async function PostPage({ params }: { params: Promise<{ menu: string; slug: string }> }) {
   const { menu, slug } = await params;
@@ -19,7 +25,8 @@ export default async function PostPage({ params }: { params: Promise<{ menu: str
       <h1 className="mt-8 text-4xl font-semibold tracking-tight sm:text-5xl">{post.title}</h1>
       <p className="mt-6 text-xl/8 text-gray-700 dark:text-gray-200">{post.summary}</p>
       <div className="mt-12 h-80">
-        <img src={post.thumbnail} alt="post image" className="mx-auto h-full object-cover object-center" />
+        <Image src={post.thumbnail} alt="post image" className="mx-auto h-full object-cover object-center" />
+        {/* <img src={post.thumbnail} alt="post image" className="mx-auto h-full object-cover object-center" /> */}
       </div>
       <div className='prose my-20 dark:prose-invert'>
         {post.content}

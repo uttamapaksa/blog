@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon, MoonIcon, SunIcon } from '@heroicons/react/24/outline';
@@ -57,9 +58,9 @@ export default function Navigation() {
               <MoonIcon className="hidden dark:block" />
               <SunIcon className="block hover:stroke-2 dark:hidden"/>
             </div>
-            <Link href="https://github.com/uttamapaksa" target="_blank" className='h-7 w-7 rounded-full hover:ring-2'>
-              <img src="/github-dark.svg" alt="github profile" className="hidden dark:block" />
-              <img src="/github-light.svg" alt="github profile" className="block dark:hidden" />
+            <Link href="https://github.com/uttamapaksa" target="_blank" className='relative h-7 w-7 rounded-full hover:ring-2'>
+              <Image src="/github-dark.svg" alt="github profile" fill className="hidden dark:block" />
+              <Image src="/github-light.svg" alt="github profile" fill className="block dark:hidden" />
             </Link>
           </div>
         </div>

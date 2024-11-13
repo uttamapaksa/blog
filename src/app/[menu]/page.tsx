@@ -1,6 +1,8 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import type { PostType } from '@/lib/constants/types';
+import { menuParams } from '@/lib/constants/params';
 import { images } from '@/lib/constants/images';
 import { formatDateString } from '@/lib/utils/dates';
 import { getPosts } from '@/lib/utils/posts';
@@ -13,12 +15,7 @@ const menuNames = {
 }
 
 export function generateStaticParams() {
-  return [
-    { menu: 'books' },
-    { menu: 'algorithm' },
-    { menu: 'react' },
-    { menu: 'cs' },
-  ];
+  return menuParams
 }
 
 export default async function MenuPage({ params }: { params: Promise<{ menu: string }> }) {
@@ -29,8 +26,9 @@ export default async function MenuPage({ params }: { params: Promise<{ menu: str
 
   return (
     <>
-      <header data-mode="dark" className="h-48">
-        <img src={image.imageSrc} alt={image.imageAlt} className="w-full h-full object-cover object-center dark:bg-darkBackground" />
+      <header data-mode="dark" className="relative h-48">
+        <Image src={image.imageSrc} alt={image.imageAlt} fill className="object-cover object-center"  />
+        {/* <img src={image.imageSrc} alt={image.imageAlt} className="w-full h-full object-cover object-center" /> */}
       </header>
       <main className="mx-auto max-w-7xl px-6 pt-8 pb-16 sm:px-12 sm:pt-12 sm:pb-24">
         <section className="ps-2 pb-6 sm:pb-8 border-b border-gray-200 dark:border-gray-700">
@@ -39,8 +37,9 @@ export default async function MenuPage({ params }: { params: Promise<{ menu: str
         <section className="mx-auto mt-12 px-1 max-w-2xl min-w-60 grid grid-cols-1 gap-x-12 gap-y-16 md:mt-16 md:grid-cols-2 lg:max-w-none lg:grid-cols-3">
           {posts.map((post: PostType) => (
             <article key={post.id} className="group mx-auto max-w-xl w-full flex flex-col items-start">
-              <Link href={`${menu}/${post.slug}`} className="w-full h-56">
-                <img src={post.thumbnail} alt="post image" className="w-full h-full object-cover object-center "/>
+              <Link href={`${menu}/${post.slug}`} className="relative w-full h-56">
+                <Image src={post.thumbnail} alt="post image" fill className="object-cover object-center "/>
+                {/* <img src={post.thumbnail} alt="post image" width={700} className="w-full h-full object-cover object-center "/> */}
               </Link>
               <div className="flex items-center mt-6 gap-x-4 text-xs">
                 <time className="text-gray-500 round-">{formatDateString(post.datetime)}</time>
