@@ -13,7 +13,7 @@ export default function HomePage() {
           {menus.map((menu: ImageType, index: number) => (
             <Link key={index} href={menu.href} className="bg-white group rounded-md shadow-lg">
               <div className="relative h-64 group-hover:opacity-75">
-                <Image src={menu.imageSrc} alt={menu.imageAlt} fill className="object-cover object-center"  />
+                <Image src={menu.imageSrc} alt={menu.imageAlt} fill className="object-cover object-center" loading="eager" />
                 {/* <img src={menu.imageSrc} alt={menu.imageAlt} className="h-full w-full object-cover object-center" /> */}
               </div>
               <div className="my-3 flex justify-center items-center text-lg font-bold tracking-tight text-gray-800 group-hover:opacity-75">

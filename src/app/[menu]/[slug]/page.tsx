@@ -26,7 +26,6 @@ export default async function PostPage({ params }: { params: Promise<{ menu: str
       <p className="mt-6 text-xl/8 text-gray-700 dark:text-gray-200">{post.summary}</p>
       <div className="mt-12 h-80">
         <Image src={post.thumbnail} alt="post image" className="mx-auto h-full object-cover object-center" />
-        {/* <img src={post.thumbnail} alt="post image" className="mx-auto h-full object-cover object-center" /> */}
       </div>
       <div className='prose my-20 dark:prose-invert'>
         {post.content}

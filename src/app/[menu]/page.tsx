@@ -27,8 +27,7 @@ export default async function MenuPage({ params }: { params: Promise<{ menu: str
   return (
     <>
       <header data-mode="dark" className="relative h-48">
-        <Image src={image.imageSrc} alt={image.imageAlt} fill className="object-cover object-center"  />
-        {/* <img src={image.imageSrc} alt={image.imageAlt} className="w-full h-full object-cover object-center" /> */}
+        <Image src={image.imageSrc} alt={image.imageAlt} fill className="object-cover object-center" loading="eager" />
       </header>
       <main className="mx-auto max-w-7xl px-6 pt-8 pb-16 sm:px-12 sm:pt-12 sm:pb-24">
         <section className="ps-2 pb-6 sm:pb-8 border-b border-gray-200 dark:border-gray-700">
@@ -38,8 +37,7 @@ export default async function MenuPage({ params }: { params: Promise<{ menu: str
           {posts.map((post: PostType) => (
             <article key={post.id} className="group mx-auto max-w-xl w-full flex flex-col items-start">
               <Link href={`${menu}/${post.slug}`} className="relative w-full h-56">
-                <Image src={post.thumbnail} alt="post image" fill className="object-cover object-center "/>
-                {/* <img src={post.thumbnail} alt="post image" width={700} className="w-full h-full object-cover object-center "/> */}
+                <Image src={post.thumbnail} alt="post image" fill className="object-cover object-center" />
               </Link>
               <div className="flex items-center mt-6 gap-x-4 text-xs">
                 <time className="text-gray-500 round-">{formatDateString(post.datetime)}</time>
