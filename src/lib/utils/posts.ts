@@ -51,7 +51,7 @@ export async function getPostBySlug(menu: string, slug: string): Promise<PostTyp
         parseFrontmatter: true,
         mdxOptions: {
           remarkPlugins: [remarkGfm],
-          rehypePlugins: [[rehypePrettyCode, { theme: 'dark-plus' }]],
+          rehypePlugins: [[rehypePrettyCode, { theme: 'everforest-dark' }]],
           format: 'mdx'
         }
       }
