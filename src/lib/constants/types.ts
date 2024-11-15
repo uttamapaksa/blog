@@ -1,10 +1,12 @@
 import { ReactElement, JSXElementConstructor } from "react";
+import { StaticImageData } from "next/image";
 
-export interface ImageType {
+export interface MenuType {
   id: number;
   name: string;
+  title: string;
   href: string;
-  imageSrc: string;
+  imageSrc: StaticImageData | string;
   imageAlt: string;
   source: string;
 }

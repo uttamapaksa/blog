@@ -5,7 +5,7 @@ import remarkGfm from 'remark-gfm';
 import rehypePrettyCode from 'rehype-pretty-code';
 import type { PostType } from '../constants/types';
 
-const POSTS_PATH = '/src/posts'
+const POSTS_PATH = '/src/posts';
 
 export async function getPosts(menu: string): Promise<PostType[] | null> {
   try {
@@ -32,8 +32,8 @@ export async function getPosts(menu: string): Promise<PostType[] | null> {
         };
       })
     );
-    
-    return posts;
+  
+    return posts.sort((a, b) => b.id - a.id);
   } catch(error) {
     console.error("Error getPosts:", error);
     return null;
@@ -67,7 +67,7 @@ export async function getPostBySlug(menu: string, slug: string): Promise<PostTyp
       content,
     };
     
-    return post
+    return post;
   } catch(error) {
     console.error("Error getPostBySlug:", error);
     return null;

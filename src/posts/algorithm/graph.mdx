@@ -5,8 +5,8 @@ datetime: "2024-11-12"
 category:
   title: "Development"
   href: "#"
-thumbnail: "https://images.unsplash.com/photo-1658954274400-b3ba4b919f43"
-source: "https://unsplash.com/photos/graphical-user-interface-application-8BiGdxRU53Q"
+thumbnail: "/posts/joakim-honkasalo-8BiGdxRU53Q-unsplash.jpg"
+source: "https://images.unsplash.com/photo-1632852521784-d85d5b62dd62"
 summary: "그래프는 정점(Vertex)과 정점들을 연결하는 간선(Edge)의 집합이다. 현실 세계의 관계나 구조를 추상화한 모델로서 사용된다."
 ---
 
@@ -139,6 +139,7 @@ def dijkstra(r):
     while priority_queue:
         d, u = heappop(priority_queue)
         
+        # pruning
         if u in visited:
             continue
         visited.add(u)
@@ -198,7 +199,7 @@ bellman_ford(1)
 ```
 
 ## 8. Floyd-Warshall
-플로이드 워셜 알고리즘(Floyd-Warshall Algorithm)은 모든 정점 간 최단 경로를 찾는 알고리즘이다. 각 정점을 순회하면서 모든 출발 정점, 도착 정점 그리고 경유 정점에 대해 간선 완화 과정을 수행한다. 동적 프로그래밍(DP) 기법을 사용하며, 음의 가중치 간선이 있는 그래프에도 적용할 수 있다. O(V^3)의 시간복잡도를 가진다.
+플로이드 워셜 알고리즘(Floyd-Warshall Algorithm)은 모든 정점 간 최단 경로를 찾는 알고리즘이다. 모든 출발 정점, 도착 정점 그리고 경유 정점에 대해 간선 완화 과정을 수행한다. 특정 점정 간 최단 경로를 계산하면서 전체 정점 간 최단 경로를 구하는 동적 프로그래밍(DP) 방식을 사용한다. 음의 가중치 간선이 있는 그래프에도 적용할 수 있다. O(V^3)의 시간복잡도를 가진다.
 ```python
 def floyd_warshall():
     for i in range(n):

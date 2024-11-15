@@ -3,16 +3,9 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import type { PostType } from '@/lib/constants/types';
 import { menuParams } from '@/lib/constants/params';
-import { images } from '@/lib/constants/images';
+import { menus } from '@/lib/constants/paths';
 import { formatDateString } from '@/lib/utils/dates';
 import { getPosts } from '@/lib/utils/posts';
-
-const menuNames = {
-  books: 'Books',
-  algorithm: 'Algorithm',
-  react: 'React',
-  cs: 'Computer Science'
-}
 
 export function generateStaticParams() {
   return menuParams
@@ -20,18 +13,18 @@ export function generateStaticParams() {
 
 export default async function MenuPage({ params }: { params: Promise<{ menu: string }> }) {
   const { menu } = await params;
+  const currMenu = menus[menu]
   const posts = await getPosts(menu);
-  const image = images[menu]
   if (posts === null) notFound();
 
   return (
     <>
       <header data-mode="dark" className="relative h-48">
-        <Image src={image.imageSrc} alt={image.imageAlt} fill className="object-cover object-center" loading="eager" />
+        <Image src={currMenu.imageSrc} alt={currMenu.imageAlt} fill className="object-cover object-center" loading="eager" />
       </header>
       <main className="mx-auto max-w-7xl px-6 pt-8 pb-16 sm:px-12 sm:pt-12 sm:pb-24">
         <section className="ps-2 pb-6 sm:pb-8 border-b border-gray-200 dark:border-gray-700">
-          <h2 className="text-pretty text-2xl font-semibold tracking-tight sm:text-3xl">{menuNames[menu]}</h2>
+          <h2 className="text-pretty text-2xl font-semibold tracking-tight sm:text-3xl">{currMenu.title}</h2>
         </section>
         <section className="mx-auto mt-12 px-1 max-w-2xl min-w-60 grid grid-cols-1 gap-x-12 gap-y-16 md:mt-16 md:grid-cols-2 lg:max-w-none lg:grid-cols-3">
           {posts.map((post: PostType) => (
