@@ -30,7 +30,7 @@ export default async function MenuPage({ params }: { params: Promise<{ menu: str
           {posts.map((post: PostType) => (
             <article key={post.id} className="group mx-auto max-w-xl w-full flex flex-col items-start">
               <Link href={`${menu}/${post.slug}`} className="relative w-full h-56">
-                <Image src={post.thumbnail} alt="post image" fill className="object-cover object-center" />
+                <Image src={post.thumbnail} alt="post image" fill className="object-cover object-center group-hover:opacity-70" />
               </Link>
               <div className="flex items-center mt-6 gap-x-4 text-xs">
                 <time className="text-gray-500 round-">{formatDateString(post.datetime)}</time>
@@ -41,9 +41,9 @@ export default async function MenuPage({ params }: { params: Promise<{ menu: str
                   {post.category.title}
                 </Link>
               </div>
-              <Link href={`${menu}/${post.slug}`} className="group-hover:text-gray-600 dark:group-hover:text-gray-300">
-                <h3 className="mt-3  line-clamp-2 text-lg/6 font-semibold tracking-tight">{post.title}</h3>
-                <div className="mt-5 line-clamp-3 text-sm/6 text-gray-600 sm:pe-20 md:pe-0 dark:text-gray-300">{post.summary}</div>
+              <Link href={`${menu}/${post.slug}`}>
+                <h3 className="mt-3  line-clamp-2 text-lg/6 font-semibold tracking-tight group-hover:text-gray-400">{post.title}</h3>
+                <div className="mt-5 line-clamp-3 text-sm/6 text-gray-600 sm:pe-20 md:pe-0 dark:text-gray-300 group-hover:text-gray-400">{post.summary}</div>
               </Link>
             </article>
           ))}
