@@ -1,0 +1,116 @@
+---
+id: 3
+title: "STRING SEARCHING"
+datetime: "2024-11-16"
+category:
+  title: "Development"
+  href: "#"
+thumbnail: "/posts/omar-flores-lQT_bOWtysE-unsplash.jpg"
+source: "https://unsplash.com/photos/blue-red-and-white-artwork-lQT_bOWtysE"
+summary: "문자열 검색은 주어진 텍스트에서 특정 패턴을 매칭하는 과정이다. 텍스트 편집기, 검색 엔진, 데이터 처리와 같은 다양한 분야에서 필수적인 역할을 한다. KMP, 보이어-무어와 같은 알고리즘이 대표적이다."
+---
+
+## 1. Brute Force
+브루트 포스 알고리즘은 문자열을 순회하면서 가능한 모든 부분 문자열에 대해 패턴과 비교하는 방식으로 탐색한다. O(nm)의 시간 복잡도를 가진다.
+```python
+def brute_force_search(text, pattern):
+    n = len(text)
+    m = len(pattern)
+    
+    for i in range(0, n-m+1):
+        for j in range(m):
+            if pattern[j] != text[i+j]:
+                break
+        else:
+            return i
+    return -1
+```
+
+## 2. KMP
+KMP 알고리즘은 패턴의 접두사 정보를 활용하여 불필요한 비교를 줄이는 방식이다. 접두사와 접미사가 일치하는 길이를 미리 계산해 둔 부분 일치 테이블을 활용하여, 불일치가 발생했을 때 일치할 가능성이 없는 부분은 건너뛰면서 불필요한 비교를 줄인다. 접두사와 접미사가 겹치는 부분이 많은 문자열에서 더 유리하다. O(n+m)의 시간 복잡도를 가진다.
+```python
+def kmp_table(pattern):
+    m = len(pattern)
+    table = [0] * m
+    j = 0
+
+    for i in range(1, m):
+        while j > 0 and pattern[i] != pattern[j]:
+            j = table[j - 1]
+        if pattern[i] == pattern[j]:
+            j += 1
+        table[i] = j
+
+    return table
+
+def kmp_search(text, pattern):
+    n = len(text)
+    m = len(pattern)
+    table = kmp_table(pattern)
+    j = 0
+
+    for i in range(n):
+        while j > 0 and text[i] != pattern[j]:
+            j = table[j - 1]
+        if text[i] == pattern[j]:
+            j += 1
+            if j == m:
+                return i - m + 1
+
+    return -1
+```
+
+## 3. Boyer-Moore
+보이어-무어 알고리즘은 불일치 문자(나쁜 글자)의 위치에 따라 패턴을 이동해 텍스트에 매칭시키는 방법이다. 패턴의 마지막 문자부터 비교하면서, 불일치 문자가 발생하면 해당 문자가 패턴에서 마지막으로 등장하는 위치만큼 건너뛴다. 불일치 문자가 패턴에 없으면 패턴 길이만큼 한 번에 건너뛸 수 있다. 좋은 접미사 규칙을 추가해 최적화할 수 있다. Θ(n+m), O(nm)의 시간 복잡도를 가진다.
+```python
+def boyer_moore_search(text, pattern):
+    n = len(text)
+    m = len(pattern)
+    if m == 0:
+        return 0
+
+    last_occurrence = {pattern[i]: i for i in range(m)}
+    i = m - 1
+
+    while i < n:
+        match = 0
+        while match < m and pattern[m-1-match] == text[i-match]:
+            match += 1
+
+        if match == m:
+            return i - match + 1
+        else:
+            bad_character_idx = last_occurrence.get(text[i], -1)
+            i += m - 1 - bad_character_idx
+
+    return -1
+```
+
+## 4. Rabin-Karp
+라빈-카프 알고리즘은 패턴의 해시값과 텍스트의 부분 문자열 해시값을 비교해 빠르게 검색하는 방식이다. 해시값이 일치할 때만 실제 문자열 비교를 수행하여 불필요한 비교를 줄인다. 해싱 함수는 일반적으로 슬라이딩 윈도우와 다항식 해시를 활용해 만든다. Θ(n+m)의 시간 복잡도를 가진다.
+```python
+def rabin_karp_search(text, pattern):
+    prime = 101
+    n = len(text)
+    m = len(pattern)
+
+    def calculate_hash(string):
+        hash_val = 0
+        for i in range(m):
+            hash_val += ord(string[i]) * pow(256, m-i-1, prime)
+        return hash_val % prime
+
+    pattern_hash = calculate_hash(pattern)
+    text_hash = calculate_hash(text[:m])
+
+    for i in range(n - m + 1):
+        if text_hash == pattern_hash and text[i:i+m] == pattern:
+            return i
+
+        if i < n - m:
+            start_char_hash = ord(text[i]) * pow(256, m-1, prime)
+            end_char_hash = ord(text[i+m]) % prime
+            text_hash = (256 * (text_hash - start_char_hash) + end_char_hash) % prime
+    
+    return -1
+```
