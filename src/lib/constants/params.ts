@@ -1,5 +1,5 @@
 export const menuParams = [
-  { menu: '' },
+  { menu: '/' },
   { menu: 'books' },
   { menu: 'algorithm' },
   { menu: 'react' },
