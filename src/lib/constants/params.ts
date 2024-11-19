@@ -9,5 +9,6 @@ export const menuParams = [
 export const menuSlugParams = [
   { menu: 'algorithm', slug: 'graph' },
   { menu: 'algorithm', slug: 'sort' },
-  { menu: 'algorithm', slug: 'string-searching' }
+  { menu: 'algorithm', slug: 'string-searching' },
+  { menu: 'books', slug: 'core-javascript' }
 ]
