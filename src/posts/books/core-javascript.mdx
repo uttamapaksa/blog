@@ -10,7 +10,7 @@ source: "https://product.kyobobook.co.kr/detail/S000001766397"
 summary: "자바스크립트의 핵심 개념과 동작 원리를 다룬 책이다. 데이터 타입, 실행 컨텍스트, this, 콜백 함수, 클로저, 프로토타입 등의 주요 주제들을 정리한다."
 ---
 
-## 1. Data Type
+## 1장. Data Type
 #### 1.1. 데이터 타입 종류
 Primitive type: Number, String, Boolean, null, undefined, Symbol  
 Reference type: Array, Function, Date, ReqExp, Map, WeakMap, Set, WeakSet
@@ -25,7 +25,7 @@ variable과 constant는 재할당 가능 여부로 구분되고, immuatable과 m
 #### 1.6. undefined와 null
 undefined는 값을 대입하지 않은 변수, 객체에 존재하지 않는 프로퍼티, 반환값이 없는 함수의 실행 결과 등에 부여된다. 비어있음을 뜻할 땐 명시적으로 null을 넣어준다. 동등 연산자(==)에선 둘이 같다. 
 
-## 2. Execution Context
+## 2장. Execution Context
 #### 2.1. 실행 컨텍스트란?
 실행 코드에 제공할 환경 정보들을 모아놓은 객체다. 코드들을 실행할 때 컨텍스트를 구성하고 콜 스택에 쌓아 환경과 순서를 보장한다. VariableEnvironment, LexicalEnvironment, ThisBinding으로 구성된다.
 #### 2.2. VariableEnvironment
@@ -35,7 +35,7 @@ environmentRecord, outerEnvironmentReference로 구성된다. VariableEnvironmen
 - **2.3.1. environmentRecord와 호이스팅:** 현재 컨텍스트와 관련된 코드의 식별자 정보들이 저장된다. 식별자 정보를 먼저 수집하는 호이스팅이 일어나는데 선언식 함수는 함수 정의 전체가, 변수와 주로 익명함수로 쓰이는 표현식 함수는 선언부만 호이스팅된다.
 - **2.3.2. 스코프, 스코프 체인, outerEnvironmentReference:** 스코프는 식별자의 유효 범위다. outerEnvironmentReference는 현재 스코프가 생성될 당시의 LexicalEnvironment를 참조한다. 이를 통해 스코프를 안에서 밖으로 찾아나가는 스코프 체인이 가능해진다.
 
-## 3. this
+## 3장. this
 #### 3.1. 상황에 따라 달리지는 this
 대부분의 객체 지향 언어에서 this는 클래스로 인스턴스 객체를 가리키지만, 자바스크립트에선 함수를 호출할 때(실행 컨텍스트 생성 시점)의 컨텍스트를 가리킨다.
 - **3.1.1. 전역 공간에서의 this:** 브라우저에서는 window, Node.js에서는 global이다. 전역 변수를 설정하면 전역 객체의 프로퍼티에도 할당된다. 자바스크립트 엔진은 변수를 선언하면 이를 실행 컨텍스트의 LexicalEnvironment 객체의 프로퍼티로도 저장하기 때문이다.
@@ -46,7 +46,7 @@ environmentRecord, outerEnvironmentReference로 구성된다. VariableEnvironmen
 #### 3.2. 명시적으로 this를 바인딩하는 방법
 명시적으로 바인딩하기 위해선 call, apply, bind 메서드를 사용하면 된다. 화살표 함수는 자신만의 this를 가지지 않고 작성된 위치에서의 상위 스코프의 this를 가리킨다. 콜백 함수를 인자로 받는 배열 메서드 중 일부도 두번째 인자(thisArg)로 this로 지정할 객체를 넘겨줄 수 있다.
 
-## 4. Callback Function
+## 4장. Callback Function
 #### 4.1. 콜백 함수란?
 콜백 함수는 다른 함수에 인자로 넘겨주는 함수이다. 다른 함수에 의해서 특정 시점에 다시 호출(call back)된다.
 #### 4.2. 제어권
@@ -58,7 +58,7 @@ environmentRecord, outerEnvironmentReference로 구성된다. VariableEnvironmen
 #### 4.5. 콜백 지옥과 비동기 제어
 콜백 지옥은 콜백 함수를 익명 함수로 전달하는 과정이 반복되어 코드의 들여쓰기 수준이 감당하기 힘들 정도로 깊어지는 현상이다. 비동기적인 작업을 수행하기 위해 이런 문제들이 발생한다. 기명 함수로의 변환, Promise, Generator, async/await 등의 해결 방법이 있다.
 
-## 5. Closure
+## 5장. Closure
 #### 5.1. 클로저의 의미 및 원리 이해
 클로저는 외부 함수의 실행 컨텍스트가 종료된 이후에도, 해당 함수의 변수에 접근할 수 있는 내부 함수를 말한다. 내부 함수의 outEnvironmentReference가 외부 함수의 LexicalEnvironment를 참조중이기 때문에 GC에 의해 사라지지 않는다.
 #### 5.2. 클로저와 메모리 관리
@@ -66,13 +66,13 @@ environmentRecord, outerEnvironmentReference로 구성된다. VariableEnvironmen
 #### 5.3. 클로저 활용 사례
 함수 내부에서 외부 데이터를 사용하거나, 접근 권한을 제어(정보 은닉)하거나 기존에 this로 하던 부분 적용 함수를 만들어 디바운스를 구현할 수 있다. 지연 실행이나 매개 변수를 일부만 변경하기 위한 커링 함수에도 쓰인다.
 
-## 6. Prototype
+## 6장. Prototype
 #### 6.1. 프로토타입의 개념 이해
 클래스 기반 언어들과 다르게 자바스크립트는 프로토타입 기반 언어이다. 이를 프로토타입을 복제함으로써 상속의 효과를 얻는다. 자바스크립트에서 함수를 만들면 자동으로 prototype 객체가 프로퍼티로 생성된다. new 연산자로 Constructor(생성자 함수)를 호출하면 instance가 만들어지는데, 이 instance의 프로퍼티 [[prototype]]는 Constructor의 프로퍼티 prototype을 참조한다. [[prototype]]는 생략 가능하기 때문에 instance는 Constructor의 prototype에 있는 메서드나 프로퍼티를 [[prototype]]를 생략하고 자신의 것처럼 바로 호출할 수 있다. prototype엔 Constructor를 가리키는 constructor가 있다.
 #### 6.2. 프로토타입 체인
-어떤 데이터의 [[prototype]] 내부에 [[prototype]]이 연쇄적으로 이러진 것을 말한다. 자바스크립트 데이터는 기본형, 참조형 모두 체인 구조를 가지고 최상위에 Object.prototype를 가진다. 그래서 객체 전용 메서드는 모든 타입으로 접근 가능한 Object의 prototype에 있지 않고 static method로 만들고 인자로 instance를 넣는다.
+어떤 데이터의 [[prototype]] 내부에 [[prototype]]이 연쇄적으로 이어진 것을 말한다. 자바스크립트 데이터는 기본형, 참조형 모두 체인 구조를 가지고 최상위에 Object.prototype를 가진다. 그래서 객체 전용 메서드는 모든 타입으로 접근 가능한 Object의 prototype에 있지 않고 static method로 만들고 인자로 instance를 넣는다.
 
-## 7. Class
+## 7장. Class
 #### 7.1. 클래스와 인스턴스의 개념 이해
 클래스는 개체들의 공통 속성을 담고 있는 템플릿이고, 인스턴스는 클래스대로 만들어진 실존 개체를 말한다.
 #### 7.2. 자바스크립트의 클래스

@@ -24,10 +24,10 @@ export default async function PostPage({ params }: { params: Promise<{ menu: str
       </section>
       <h1 className="mt-8 text-4xl font-semibold tracking-tight sm:text-5xl">{post.title}</h1>
       <p className="mt-6 text-xl/8 text-gray-700 dark:text-gray-200">{post.summary}</p>
-      <div className="relative mt-6 h-80 sm:mt-12">
+      <div className="relative mt-6 h-96 sm:mt-12">
         <Image src={post.thumbnail} alt="post image" fill className="object-contain object-center" />
       </div>
-      <div className='prose max-w-full my-10 sm:my-20 dark:prose-invert'>
+      <div className='prose max-w-full my-10 sm:my-20 dark:prose-invert dark:prose-h2:text-gray-100 dark:prose-h4:text-gray-100 dark:text-gray-200'>
         {post.content}
       </div>
     </main>
