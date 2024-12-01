@@ -1,5 +1,5 @@
 import type { MenuType } from "./types";
-import { Books, React, Algorithm, CS, NotFound } from "public/menus"
+import { Books, React, Algorithm, CS, Playground, NotFound } from "public/menus"
 
 export const menus: Record<string, MenuType> = {
   home: {
@@ -47,8 +47,17 @@ export const menus: Record<string, MenuType> = {
     imageAlt: 'cs menu image',
     source: 'https://unsplash.com/photos/astronaut-on-lunar-rover-Ed2AELHKYBw',
   },
-  notFound: {
+  playground: {
     id: 6,
+    name: 'Playground',
+    title: 'Playground',
+    href: '/playground',
+    imageSrc: Playground,
+    imageAlt: 'playground menu image',
+    source: 'https://unsplash.com/photos/girl-on-slide-_NLLnuZyuXA',
+  },
+  notFound: {
+    id: 7,
     name: 'NotFound',
     title: '404 Not Found',
     href: '/#',

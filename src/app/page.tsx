@@ -3,7 +3,7 @@ import Image from 'next/image';
 import type { MenuType } from '../lib/constants/types';
 import { menus } from '@/lib/constants/paths';
 
-const homeMenus = [menus.books, menus.react, menus.algorithm, menus.cs];
+const homeMenus = [menus.books, menus.react, menus.algorithm, menus.cs, menus.playground];
 
 export default function HomePage() {
   return (

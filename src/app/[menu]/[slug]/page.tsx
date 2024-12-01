@@ -27,7 +27,7 @@ export default async function PostPage({ params }: { params: Promise<{ menu: str
       <div className="relative mt-6 h-96 sm:mt-12">
         <Image src={post.thumbnail} alt="post image" fill className="object-contain object-center" />
       </div>
-      <div className='prose max-w-full my-10 sm:my-20 dark:prose-invert dark:prose-h2:text-gray-100 dark:prose-h4:text-gray-100 dark:text-gray-200'>
+      <div className="prose max-w-full my-10 sm:my-20 dark:prose-invert dark:prose-h2:text-gray-100 dark:prose-h3:text-gray-100 dark:prose-h4:text-gray-100 dark:text-gray-100">
         {post.content}
       </div>
     </main>
