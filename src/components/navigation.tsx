@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
@@ -12,10 +13,11 @@ const navigations = [menus.home, menus.books, menus.react, menus.algorithm, menu
 export default function Navigation() {
   const pathname = usePathname();
   const currHref = '/' + pathname.split('/')[1]
+
   const toggleDarkMode = () => {
     const themeCookie = document.cookie.split('; ').find(row => row.startsWith('theme='));
-    const prevTheme = themeCookie ? themeCookie.split('=')[1] : 'light';
-    if (prevTheme === 'dark') {
+    const theme = themeCookie ? themeCookie.split('=')[1] : '';
+    if (theme === 'dark') {
       document.documentElement.classList.remove('dark');
       document.cookie = 'theme=light; max-age=604800; path=/; secure';
     } else {
@@ -23,6 +25,21 @@ export default function Navigation() {
       document.cookie = 'theme=dark; max-age=604800; path=/; secure';
     }
   }
+
+  useEffect(()=> {
+    const themeCookie = document.cookie.split('; ').find(row => row.startsWith('theme='));
+    const theme = themeCookie ? themeCookie.split('=')[1] : '';
+    if (!theme) {
+      const systemTheme = window && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      if (systemTheme === 'light') {
+        document.documentElement.classList.remove('dark');
+        document.cookie = 'theme=light; max-age=604800; path=/; secure';
+      } else {
+        document.documentElement.classList.add('dark');
+        document.cookie = 'theme=dark; max-age=604800; path=/; secure';
+      }
+    }
+  }, [])
 
   return (
     <Disclosure as="nav" className="border-b-2 border-gray-100 dark:border-gray-900">
