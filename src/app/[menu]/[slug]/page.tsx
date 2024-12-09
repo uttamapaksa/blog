@@ -15,7 +15,7 @@ export default async function PostPage({ params }: { params: Promise<{ menu: str
   if (post === null) notFound();
 
   return (
-    <main className="mx-auto max-w-5xl px-6 py-8 sm:px-12 lg:px-24 ">
+    <main className="mx-auto max-w-5xl px-6 py-8 sm:px-12 lg:px-24">
       <section className="flex justify-between items-center mt-6 text-xs sm:mt-8">
         <time className="text-gray-500 round-">{formatDateString(post.datetime)}</time>
         <Link href={post.category.href} className="rounded-xl bg-gray-50 px-3 py-1.5 text-gray-600 font-medium dark:bg-gray-900 dark:text-gray-400 dark:hover:bg-gray-800">

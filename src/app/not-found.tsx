@@ -6,7 +6,7 @@ export default function NotFound() {
   return (
     <div className="relative h-[85vh]">
       <Image src={menus.notFound.imageSrc} alt="not found page image" fill className='object-cover object-center' />
-      <main className="relative h-full z-10 place-items-center px-6 py-14 text-center sm:py-20">
+      <main className="relative px-6 py-14 text-center sm:py-16">
         <p className="text-base font-semibold text-indigo-600">404</p>
         <h1 className="mt-4 text-balance text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
           Page not found
