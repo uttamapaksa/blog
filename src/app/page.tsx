@@ -16,7 +16,7 @@ export default function HomePage() {
               {/* <img src={menu.imageSrc} alt={menu.imageAlt} className="h-full w-full object-cover object-center" /> */}
             </div>
             <div className="my-3 flex justify-center items-center text-lg font-bold tracking-tight text-gray-800 group-hover:opacity-75">
-              {menu.name}
+              {menu.title}
             </div>
           </Link>
         ))}

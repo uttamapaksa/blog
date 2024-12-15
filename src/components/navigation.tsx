@@ -8,7 +8,7 @@ import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react
 import { Bars3Icon, XMarkIcon, MoonIcon, SunIcon } from '@heroicons/react/24/outline';
 import { menus } from '@/lib/constants/paths';
 
-const navigations = [menus.home, menus.books, menus.react, menus.algorithm, menus.cs];
+const navigations = [menus.home, menus.books, menus.react, menus.algorithm, menus.cs, menus.playground];
 
 export default function Navigation() {
   const pathname = usePathname();
@@ -61,8 +61,8 @@ export default function Navigation() {
                     key={navigation.name}
                     href={navigation.href}
                     className={`
-                      flex items-center justify-center px-5 pt-2 border-b-2 text-sm font-medium transition ease-in-out duration-200
-                      ${currHref === navigation.href ? ' border-indigo-500' : 'border-transparent hover:border-b-2 hover:border-gray-400 dark:hover:border-gray-600'}
+                      flex items-center justify-center px-5 pt-2 text-sm font-medium ease-in-out duration-100
+                      ${currHref === navigation.href ? 'border-b-2 border-indigo-500' : 'border-gray-400 hover:border-b-2 dark:hover:border-gray-500'}
                     `}
                   >
                     {navigation.name}
