@@ -18,4 +18,5 @@ export const menuSlugParams = [
   { menu: 'books', slug: 'saynos-lessons' },
   { menu: 'books', slug: 'self-learning-network' },
   { menu: 'books', slug: 'dont-make-me-think' },
+  { menu: 'books', slug: 'design-of-everyday-things' },
 ]
