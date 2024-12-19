@@ -73,3 +73,25 @@ export async function getPostBySlug(menu: string, slug: string): Promise<PostTyp
     return null;
   }
 }
+
+export async function getCategories(menu: string): Promise<string[] | null> {
+  try {
+    const dirPath = path.join(process.cwd(), `${POSTS_PATH}/${menu}`);
+    const fileNames = await fs.promises.readdir(dirPath);
+    const categories = await Promise.all(fileNames
+      .filter((fileName) => fileName.endsWith('.mdx'))
+      .map(async (fileName) => {
+        const filePath = path.join(dirPath, fileName);
+        const file = await fs.promises.readFile(filePath, 'utf-8');
+        const { frontmatter } = await compileMDX<PostType>({ source: file, options: { parseFrontmatter: true }});
+
+        return frontmatter.category.title;
+      })
+    );
+  
+    return Array.from(new Set([...categories]));
+  } catch(error) {
+    console.error("Error getCategories:", error);
+    return null;
+  }
+}
