@@ -1,9 +1,9 @@
-import Link from 'next/link';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { menuSlugParams } from '@/lib/constants/params';
 import { getPostBySlug } from '@/lib/utils/posts';
 import { formatDateString } from '@/lib/utils/dates';
+import Category from '@/components/category';
 
 export function generateStaticParams() {
   return menuSlugParams;
@@ -17,10 +17,8 @@ export default async function PostPage({ params }: { params: Promise<{ menu: str
   return (
     <main className="mx-auto max-w-5xl px-6 py-8 sm:px-12 lg:px-24">
       <section className="flex justify-between items-center mt-6 text-xs sm:mt-8">
-        <time className="text-gray-500 round-">{formatDateString(post.datetime)}</time>
-        <Link href={post.category.href} className="rounded-xl bg-gray-50 px-3 py-1.5 text-gray-600 font-medium dark:bg-gray-900 dark:text-gray-400 dark:hover:bg-gray-800">
-          {post.category.title}
-        </Link>
+        <time className="text-gray-500 dark:text-gray-400 round-">{formatDateString(post.datetime)}</time>
+        <Category href={post.category.href} title={post.category.title} />
       </section>
       <h1 className="mt-8 text-4xl font-semibold tracking-tight sm:text-5xl">{post.title}</h1>
       <p className="mt-6 text-xl/8 text-gray-700 dark:text-gray-200">{post.summary}</p>
