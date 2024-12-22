@@ -16,6 +16,12 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/sih/fit-in/458x0/pdt/*',
       },
+      {
+        protocol: 'https',
+        hostname: 'image.aladin.co.kr',
+        port: '',
+        pathname: '/product/**',
+      },
     ],
   },
 };

@@ -20,4 +20,5 @@ export const menuSlugParams = [
   { menu: 'books', slug: 'dont-make-me-think' },
   { menu: 'books', slug: 'design-of-everyday-things' },
   { menu: 'books', slug: 'walden' },
+  { menu: 'books', slug: 'icarus-deception' },
 ]
