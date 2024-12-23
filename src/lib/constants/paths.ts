@@ -1,12 +1,12 @@
 import type { MenuType } from "./types";
-import { Books, React, Algorithm, CS, Playground, NotFound } from "public/menus"
+import { BooksMenuImg, ReactMenuImg, AlgorithmMenuImg, CSMenuImg, PlaygroundMenuImg, ErrorsMenuImg, NotFoundMenuImg } from "public/menus"
 
 export const menus: Record<string, MenuType> = {
-  home: {
+  home: {  // url, directory
     id: 1,
-    name: 'Home',
-    title: 'Home',
-    href: '/',
+    name: 'Home',  // navigation
+    title: 'Home',  // home page, menu page
+    href: '/',  // url, directory
     imageSrc: '',
     imageAlt: 'home menu image',
     source: '',
@@ -16,7 +16,7 @@ export const menus: Record<string, MenuType> = {
     name: 'Books',
     title: 'Books',
     href: '/books',
-    imageSrc: Books,
+    imageSrc: BooksMenuImg,
     imageAlt: 'books menu image',
     source: 'https://unsplash.com/photos/wooden-bookcase-filled-with-books-D4YrzSwyIEc',
   },
@@ -25,7 +25,7 @@ export const menus: Record<string, MenuType> = {
     name: 'React',
     title: 'React',
     href: '/react',
-    imageSrc: React,
+    imageSrc: ReactMenuImg,
     imageAlt: 'react menu image',
     source: 'https://unsplash.com/photos/a-computer-screen-with-a-logo-on-it-xkBaqlcqeb4',
   },
@@ -34,7 +34,7 @@ export const menus: Record<string, MenuType> = {
     name: 'Algorithm',
     title: 'Algorithm',
     href: '/algorithm',
-    imageSrc: Algorithm,
+    imageSrc: AlgorithmMenuImg,
     imageAlt: 'algorithm menu image',
     source: 'https://unsplash.com/photos/a-bunch-of-light-bulbs-hanging-from-a-tree-Goy1rUgU05I',
   },
@@ -43,7 +43,7 @@ export const menus: Record<string, MenuType> = {
     name: 'CS',
     title: 'Computer Science',
     href: '/cs',
-    imageSrc: CS,
+    imageSrc: CSMenuImg,
     imageAlt: 'cs menu image',
     source: 'https://unsplash.com/photos/astronaut-on-lunar-rover-Ed2AELHKYBw',
   },
@@ -52,16 +52,25 @@ export const menus: Record<string, MenuType> = {
     name: 'Playground',
     title: 'Playground',
     href: '/playground',
-    imageSrc: Playground,
+    imageSrc: PlaygroundMenuImg,
     imageAlt: 'playground menu image',
     source: 'https://unsplash.com/photos/girl-on-slide-_NLLnuZyuXA',
+  },  
+  errors: {
+    id: 7,
+    name: 'Errors',
+    title: 'Error History',
+    href: '/errors',
+    imageSrc: ErrorsMenuImg,
+    imageAlt: 'errors menu image',
+    source: 'https://unsplash.com/photos/person-knitting-beige-garment-cqIygVsfrgM',
   },
   notFound: {
-    id: 7,
+    id: 8,
     name: 'NotFound',
     title: '404 Not Found',
-    href: '/#',
-    imageSrc: NotFound,
+    href: '#',
+    imageSrc: NotFoundMenuImg,
     imageAlt: '404 not found background image',
     source: 'https://unsplash.com/photos/man-in-blue-shirt-and-black-pants-standing-on-water-during-daytime-Mv4r82sR-dA',
   },

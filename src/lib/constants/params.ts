@@ -1,9 +1,10 @@
 export const menuParams = [
   { menu: 'books' },
-  { menu: 'algorithm' },
   { menu: 'react' },
+  { menu: 'algorithm' },
   { menu: 'cs' },
   { menu: 'playground' },
+  { menu: 'errors' }
 ]
 
 export const menuSlugParams = [
@@ -21,4 +22,5 @@ export const menuSlugParams = [
   { menu: 'books', slug: 'design-of-everyday-things' },
   { menu: 'books', slug: 'walden' },
   { menu: 'books', slug: 'icarus-deception' },
+  { menu: 'errors', slug: 'nextjs-blog' },
 ]

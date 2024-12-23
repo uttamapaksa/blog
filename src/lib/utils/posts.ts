@@ -10,8 +10,8 @@ const POSTS_PATH = '/src/posts';
 export async function getPosts(menu: string): Promise<PostType[] | null> {
   try {
     const dirPath = path.join(process.cwd(), `${POSTS_PATH}/${menu}`);
-    // const fileNames = fs.readdirSync(dirPath);
-    const fileNames = await fs.promises.readdir(dirPath);
+    // const fileNames = fs.readdirSync(dirPath, 'utf-8');
+    const fileNames = await fs.promises.readdir(dirPath, 'utf-8');
     const posts = await Promise.all(fileNames
       .filter((fileName) => fileName.endsWith('.mdx'))
       .map(async (fileName) => {
