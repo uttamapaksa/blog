@@ -12,9 +12,24 @@ html.dark {
   --foreground: #f3f4f6; /* text-gray-100 */
 }
 
+/* @font-face {
+  font-family: 'NanumBarunGothic';
+  src: url('../fonts/NanumBarunGothic.woff') format('woff');
+  unicode-range: U+AC00-D7A3;
+  font-display: swap; 
+}
+
+@font-face {
+  font-family: 'GeistSans';
+  src: url('../fonts/GeistVF.woff') format('woff');
+  unicode-range: U+0020-007E;
+  font-display: swap; 
+} */
+
 body {
   color: var(--foreground);
   background: var(--background);
+  /* font-family: 'NanumBarunGothic', 'GeistSans', sans-serif; */
   font-family: var(--font-geist-sans), sans-serif;
   -webkit-font-smoothing: antialiased; /* Webkit */
   -moz-osx-font-smoothing: grayscale; /* Firefox */
