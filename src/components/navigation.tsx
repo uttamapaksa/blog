@@ -77,7 +77,7 @@ export default function Navigation() {
                 as="div"
                 className={`
                   flex items-center justify-center px-3 py-2 text-sm font-medium
-                  ${currHref === navigation.href ? 'bg-gray-700 text-white' : 'hover:bg-gray-100 dark:hover:bg-gray-900'}
+                  ${currHref === navigation.href ? 'bg-gray-700 text-white' : 'hover:bg-gray-100 dark:hover:bg-gray-900 hover:underline'}
                 `}
               >
                 {navigation.name}
