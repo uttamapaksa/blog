@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build",
+    "build": "node -e \"const start = Date.now(); require('child_process').execSync('next build', { stdio: 'inherit' }); console.log(`✨ Build completed in ${(Date.now() - start) / 1000}s`);\"",
     "start": "next start",
     "lint": "next lint"
   },

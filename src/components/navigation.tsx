@@ -1,6 +1,5 @@
 'use client';
 
-import { useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
@@ -15,38 +14,23 @@ export default function Navigation() {
   const currHref = '/' + pathname.split('/')[1]
 
   const toggleDarkMode = () => {
-    const themeCookie = document.cookie.split('; ').find(row => row.startsWith('theme='));
-    const theme = themeCookie ? themeCookie.split('=')[1] : '';
-    if (theme === 'dark') {
+    const theme = localStorage.getItem('theme');
+    const darkMode = theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    if (darkMode) {
       document.documentElement.classList.remove('dark');
-      document.cookie = 'theme=light; max-age=604800; path=/; secure';
+      localStorage.setItem('theme', 'light');
     } else {
       document.documentElement.classList.add('dark');
-      document.cookie = 'theme=dark; max-age=604800; path=/; secure';
+      localStorage.setItem('theme', 'dark');
     }
   }
-
-  useEffect(()=> {
-    const themeCookie = document.cookie.split('; ').find(row => row.startsWith('theme='));
-    const theme = themeCookie ? themeCookie.split('=')[1] : '';
-    if (!theme) {
-      const systemTheme = window && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-      if (systemTheme === 'light') {
-        document.documentElement.classList.remove('dark');
-        document.cookie = 'theme=light; max-age=604800; path=/; secure';
-      } else {
-        document.documentElement.classList.add('dark');
-        document.cookie = 'theme=dark; max-age=604800; path=/; secure';
-      }
-    }
-  }, [])
 
   return (
     <Disclosure as="nav" className="border-b-2 border-gray-100 dark:border-gray-900">
       <div className="relative mx-auto px-2 sm:px-6 lg:px-8">
         <div className="relative h-20 flex items-center">
           {/* Mobile menu button*/}
-          <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
+          <div className="absolute inset-y-0 left-0 flex items-center md:hidden">
             <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 hover:bg-gray-700 hover:text-white ">
               <Bars3Icon aria-hidden="true" className="block h-6 w-6 group-data-[open]:hidden" />
               <XMarkIcon aria-hidden="true" className="hidden h-6 w-6 group-data-[open]:block" />
@@ -54,8 +38,8 @@ export default function Navigation() {
           </div>
           {/* Desktop menu item*/}
           <div className="flex flex-1 items-center justify-center sm:items-stretch h-full">
-            <div className="hidden sm:block">
-              <div className="flex gap-x-2 h-full">
+            <div className="hidden md:block">
+              <div className="flex gap-x-1 h-full">
                 {navigations.map((navigation) => (
                   <Link
                     key={navigation.name}
@@ -85,7 +69,7 @@ export default function Navigation() {
         </div>
       </div>
       {/* Mobile menu item*/}
-      <DisclosurePanel className="sm:hidden">
+      <DisclosurePanel className="md:hidden">
         <div className="space-y-1 px-2 py-2">
           {navigations.map((navigation) => (
             <Link key={navigation.name} href={navigation.href}>

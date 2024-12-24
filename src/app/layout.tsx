@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { cookies } from "next/headers";
+// import { cookies } from "next/headers";
 import localFont from "next/font/local";
 import "./globals.css";
 import Navigation from "../components/navigation";
@@ -21,18 +21,40 @@ export const metadata: Metadata = {
   description: "Uttama Blog",
 };
 
+const InitialThemeScript = () => (
+  <script
+    dangerouslySetInnerHTML={{
+      __html: `
+        (function() {
+          const theme = localStorage.getItem('theme');
+          const darkMode = theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          if (darkMode) {
+            document.documentElement.classList.add('dark');
+            localStorage.setItem('theme', 'dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+            localStorage.setItem('theme', 'light');
+          }
+        })();
+      `,
+    }}
+  />
+);
+
 export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
 
-  const cookieStore = await cookies();
-  const theme = cookieStore.get('theme')?.value ?? '';
+  // const cookieStore = await cookies();
+  // const theme = cookieStore.get('theme')?.value ?? '';
 
   return (
-    <html lang="en" className={theme}>
+    // <html lang="en" className={theme}>
+    <html lang="en">
       <body className={`${geistSans.variable} antialiased`}>
+        <InitialThemeScript />
         <Navigation />
         {children}
       </body>
