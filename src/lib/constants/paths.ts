@@ -1,5 +1,5 @@
 import type { MenuType } from "./types";
-import { BooksMenuImg, ReactMenuImg, AlgorithmMenuImg, CSMenuImg, PlaygroundMenuImg, ErrorsMenuImg, NotFoundMenuImg } from "public/menus"
+import { BookMenuImg, ReactMenuImg, AlgorithmMenuImg, CSMenuImg, PlaygroundMenuImg, ErrorMenuImg, NotFoundMenuImg } from "public/menus"
 
 export const menus: Record<string, MenuType> = {
   home: {  // url, directory
@@ -11,13 +11,13 @@ export const menus: Record<string, MenuType> = {
     imageAlt: 'home menu image',
     source: '',
   },
-  books: {
+  book: {
     id: 2,
-    name: 'Books',
-    title: 'Books',
-    href: '/books',
-    imageSrc: BooksMenuImg,
-    imageAlt: 'books menu image',
+    name: 'Book',
+    title: 'Book',
+    href: '/book',
+    imageSrc: BookMenuImg,
+    imageAlt: 'book menu image',
     source: 'https://unsplash.com/photos/wooden-bookcase-filled-with-books-D4YrzSwyIEc',
   },
   react: {
@@ -56,17 +56,26 @@ export const menus: Record<string, MenuType> = {
     imageAlt: 'playground menu image',
     source: 'https://unsplash.com/photos/girl-on-slide-_NLLnuZyuXA',
   },  
-  errors: {
+  error: {
     id: 7,
-    name: 'Errors',
+    name: 'Error',
     title: 'Error History',
-    href: '/errors',
-    imageSrc: ErrorsMenuImg,
-    imageAlt: 'errors menu image',
+    href: '/error',
+    imageSrc: ErrorMenuImg,
+    imageAlt: 'error menu image',
     source: 'https://unsplash.com/photos/person-knitting-beige-garment-cqIygVsfrgM',
   },
-  notFound: {
+  category: {
     id: 8,
+    name: 'Category',
+    title: '# Category',
+    href: '/category',
+    imageSrc: '',
+    imageAlt: 'category menu image',
+    source: '',
+  },
+  notFound: {
+    id: 9,
     name: 'NotFound',
     title: '404 Not Found',
     href: '#',

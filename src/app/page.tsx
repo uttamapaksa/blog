@@ -1,9 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import type { MenuType } from '../lib/constants/types';
-import { menus } from '@/lib/constants/paths';
-
-const homeMenus = [menus.books, menus.react, menus.algorithm, menus.cs, menus.playground, menus.errors];
+import { homeMenus } from '@/lib/constants/params';
 
 export default function HomePage() {
   return (

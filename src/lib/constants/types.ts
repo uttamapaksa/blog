@@ -13,13 +13,11 @@ export interface MenuType {
 
 export interface PostType {
   id: number;
+  menu: string,
   slug: string;
   title: string;
   datetime: Date | string;
-  category: {
-    title: string;
-    href: string;
-  };
+  category: string;
   thumbnail: string;
   summary: string;
   content: string | ReactElement<any, string | JSXElementConstructor<any>>;

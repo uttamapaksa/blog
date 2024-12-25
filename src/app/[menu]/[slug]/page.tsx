@@ -18,7 +18,7 @@ export default async function PostPage({ params }: { params: Promise<{ menu: str
     <main className="mx-auto max-w-5xl px-6 py-8 sm:px-12 lg:px-24">
       <section className="flex justify-between items-center mt-6 text-xs sm:mt-8">
         <time className="text-gray-500 dark:text-gray-400 round-">{formatDateString(post.datetime)}</time>
-        <Category href={post.category.href} title={post.category.title} />
+        <Category category={post.category} />
       </section>
       <h1 className="mt-8 text-4xl font-semibold tracking-tight sm:text-5xl">{post.title}</h1>
       <p className="mt-6 text-xl/8 text-gray-700 dark:text-gray-200">{post.summary}</p>
