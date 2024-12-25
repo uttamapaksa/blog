@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import { notFound } from 'next/navigation';
 import { menus } from '@/lib/constants/paths';
 import { getAllPosts } from '@/lib/utils/posts';
@@ -15,7 +16,9 @@ export default async function CategoryPage() {
         <section className="ps-2 pb-6 sm:pb-8 border-b border-gray-200 dark:border-gray-700">
           <h2 className="text-pretty text-2xl font-semibold tracking-tight sm:text-3xl">{currMenu.title}</h2>
         </section>
-        <Content posts={posts} categories={categories} />
+        <Suspense fallback={<div>Loading posts...</div>}>
+          <Content posts={posts} categories={categories} />
+        </Suspense>
       </main>
     </>
     );

@@ -6,8 +6,7 @@ export const menuParams = [
   { menu: 'algorithm' },
   { menu: 'cs' },
   { menu: 'playground' },
-  { menu: 'error' },
-  { menu: 'category' }
+  { menu: 'error' }
 ]
 
 export const menuSlugParams = [
