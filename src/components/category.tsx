@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/navigation';
 
-const Category = ({ category }: { category: string }) => {
+export default function Category({ category }: { category: string }) {
   const router = useRouter();
   const clickCategory = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -15,5 +15,3 @@ const Category = ({ category }: { category: string }) => {
     </div>
   );
 };
-
-export default Category;

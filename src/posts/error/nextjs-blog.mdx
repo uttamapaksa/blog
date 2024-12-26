@@ -50,3 +50,6 @@ usePathname으로 현재 url을 가져와서 현재 메뉴에 bottom border로 �
 
 #### useSearchParams 빌드 오류 ✅ <small className="text-gray-500">24.12.26.</small>
 정적 렌더링을 하는 경로에서 `useSearchParams`를 사용하는 클라이언트 컴포넌트를 `<Suspense/>`로 감싸지 않았다고 빌드 오류가 났다. 감싸지 않으면 부모(정적 서버) 컴포넌트까지 동적 렌더링이 일어나기 때문에 `<Suspense/>`로 그 경계를 한정해주는 것이다. 정적 렌더링을 유지하고자 하는 페이지가 아니라면(동적 서버 컴포넌트) 해주지 않아도 된다.
+
+#### map 반환값 문법 오류 ✅ <small className="text-gray-500">24.12.27.</small>
+map을 이용해서 반복문으로 JSX 표현식(Expression)를 반환할 때가 굉장히 많다. 이때 중괄호가 아닌 소괄호로 써야 한다. 중괄호는 코드 블록으로 인식되기 때문이다. 중괄호는 작업을 수행하는 문(Statement)을 묶고 소괄호는 값을 반환하는 표현식을 묶는다.

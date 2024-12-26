@@ -28,7 +28,7 @@ export default function Navigation() {
       <div className="relative mx-auto px-2 sm:px-6 lg:px-8">
         <div className="relative h-20 flex items-center">
           {/* Mobile menu button*/}
-          <div className="absolute inset-y-0 left-0 flex items-center md:hidden">
+          <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
             <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 hover:bg-gray-700 hover:text-white ">
               <Bars3Icon aria-hidden="true" className="block h-6 w-6 group-data-[open]:hidden" />
               <XMarkIcon aria-hidden="true" className="hidden h-6 w-6 group-data-[open]:block" />
@@ -36,7 +36,7 @@ export default function Navigation() {
           </div>
           {/* Desktop menu item*/}
           <div className="flex flex-1 items-center justify-center sm:items-stretch h-full">
-            <div className="hidden md:block">
+            <div className="hidden sm:block">
               <div className="flex gap-x-1 h-full">
                 {navigations.map((navigation) => (
                   <Link
@@ -67,7 +67,7 @@ export default function Navigation() {
         </div>
       </div>
       {/* Mobile menu item*/}
-      <DisclosurePanel className="md:hidden">
+      <DisclosurePanel className="sm:hidden">
         <div className="space-y-1 px-2 py-2">
           {navigations.map((navigation) => (
             <Link key={navigation.name} href={navigation.href}>

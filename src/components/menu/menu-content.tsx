@@ -6,17 +6,17 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { PostType } from '@/lib/constants/types';
 import { formatDateString } from '@/lib/utils/dates';
-import Category from './category';
+import Category from '../category';
 
 interface ContentProps {
   posts: PostType[];
   categories: string[];
 }
 
-const Content = ({ posts, categories }: ContentProps) => {
+export default function MenuContent({ posts, categories }: ContentProps) {
   const searchParams = useSearchParams();
   const search = searchParams.get('search');
-  const [selected, setSelected] = useState<Set<string>>(() => (new Set(categories)));
+  const [selected, setSelected] = useState<Set<string>>(new Set(categories));
 
   const selectCategory = (category: string) => {
     setSelected((prev) => {
@@ -87,5 +87,3 @@ const Content = ({ posts, categories }: ContentProps) => {
     </>
   );
 };
-
-export default Content;

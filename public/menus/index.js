@@ -1,4 +1,4 @@
-// default as [menus.name]
+// default as [[menus.name]MenuImg]
 
 export { default as BookMenuImg } from './jason-leung-D4YrzSwyIEc-unsplash.webp';
 export { default as ReactMenuImg } from './lautaro-andreani-xkBaqlcqeb4-unsplash.webp';

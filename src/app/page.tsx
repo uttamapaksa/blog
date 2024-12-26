@@ -1,15 +1,14 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import type { MenuType } from '../lib/constants/types';
 import { homeMenus } from '@/lib/constants/params';
 
-const Acativate = ['Home', 'Book', 'Algorithm', 'Error', 'Category']
+const Acativate = ['Home', 'Book', 'Algorithm', 'Playground', 'Error', 'Category']
 
 export default function HomePage() {
   return (
     <div className="mx-auto max-w-2xl px-6 pt-12 pb-24 sm:pt-16 lg:max-w-7xl lg:px-12">
       <div className="grid grid-cols-1 gap-x-6 gap-y-16 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-12">
-        {homeMenus.map((menu: MenuType) => {
+        {homeMenus.map((menu) => {
           if (Acativate.includes(menu.name)) {
             return (
             <Link key={menu.id} href={menu.href} className="group rounded-md shadow-lg overflow-hidden">
