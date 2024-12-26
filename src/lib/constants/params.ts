@@ -39,10 +39,10 @@ export const homeMenus = [
 export const navigations = [
   menus.home,
   menus.book,
-  menus.react,
+  // menus.react,
   menus.algorithm,
-  menus.cs,
-  menus.playground,
+  // menus.cs,
+  // menus.playground,
   menus.error,
   menus.category
 ];
