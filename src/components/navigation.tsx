@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
@@ -16,12 +17,24 @@ export default function Navigation() {
     const darkMode = theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches);
     if (darkMode) {
       document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
+      localStorage.setItem('theme', '');
     } else {
       document.documentElement.classList.add('dark');
       localStorage.setItem('theme', 'dark');
     }
   }
+  
+  useEffect(() =>{
+    const theme = localStorage.getItem('theme');
+    const darkMode = theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    if (darkMode) { 
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', '');
+    }
+  }, [])
 
   return (
     <Disclosure as="nav" className="border-b-2 border-gray-100 dark:border-gray-900">

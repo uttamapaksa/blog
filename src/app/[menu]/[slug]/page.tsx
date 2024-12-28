@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import { notFound } from 'next/navigation';
 import { menuSlugParams } from '@/lib/constants/params';
 import { getPostBySlug } from '@/lib/utils/posts';
 import { formatDateString } from '@/lib/utils/dates';
@@ -12,7 +11,6 @@ export function generateStaticParams() {
 export default async function PostPage({ params }: { params: Promise<{ menu: string; slug: string }> }) {
   const { menu, slug } = await params;
   const post = await getPostBySlug(menu, slug);
-  if (post === null) notFound();
 
   return (
     <main className="mx-auto max-w-5xl px-6 py-8 sm:px-12 lg:px-24">

@@ -1,3 +1,4 @@
+import { notFound } from 'next/navigation';
 import fs from 'fs';
 import path from 'path';
 import { compileMDX } from "next-mdx-remote/rsc";
@@ -7,7 +8,7 @@ import type { PostType } from '../constants/types';
 
 const POSTS_PATH = path.join(process.cwd(), '/src/posts');
 
-export async function getAllPosts(): Promise<PostType[] | null> {
+export async function getAllPosts(): Promise<PostType[]> {
   try {
     const dirNames = await fs.promises.readdir(POSTS_PATH, 'utf-8');
     const posts: PostType[] = (await Promise.all(
@@ -41,11 +42,11 @@ export async function getAllPosts(): Promise<PostType[] | null> {
     return posts.sort((a, b) => new Date(b.datetime).getTime() - new Date(a.datetime).getTime());
   } catch(error) {
     console.error("Error getAllPosts:", error);
-    return null;
+    return notFound()
   }
 }
 
-export async function getPostsByMenu(menu: string): Promise<PostType[] | null> {
+export async function getPostsByMenu(menu: string): Promise<PostType[]> {
   try {
     const dirPath = `${POSTS_PATH}/${menu}`;
     // const fileNames = fs.readdirSync(dirPath, 'utf-8');
@@ -75,11 +76,11 @@ export async function getPostsByMenu(menu: string): Promise<PostType[] | null> {
     return posts.sort((a, b) => b.id - a.id);
   } catch(error) {
     console.error("Error getPostsByMenu:", error);
-    return null;
+    return notFound();
   }
 }
 
-export async function getPostBySlug(menu: string, slug: string): Promise<PostType | null> {
+export async function getPostBySlug(menu: string, slug: string): Promise<PostType> {
   try {
     const dirPath = `${POSTS_PATH}/${menu}`;
     const filePath = path.join(dirPath, `${slug}.mdx`);
@@ -110,6 +111,6 @@ export async function getPostBySlug(menu: string, slug: string): Promise<PostTyp
     return post;
   } catch(error) {
     console.error("Error getPostBySlug:", error);
-    return null;
+    return notFound();
   }
 }
