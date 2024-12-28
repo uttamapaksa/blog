@@ -1,11 +1,18 @@
 import { menus } from '@/lib/constants/paths';
+import { playgroundNode, generatePlaygrounComponents, generatePlaygroundParams } from '@/lib/utils/playground';
+import {
+  intro,
+  a, 
+  aa,
+  ab,
+  ac,
+} from '@/posts/playgorund';
 
 export const menuParams = [
   { menu: 'book' },
   { menu: 'react' },
   { menu: 'algorithm' },
   { menu: 'cs' },
-  { menu: 'playground' },
   { menu: 'error' }
 ]
 
@@ -42,7 +49,24 @@ export const navigations = [
   // menus.react,
   menus.algorithm,
   // menus.cs,
-  // menus.playground,
+  menus.playground,
   menus.error,
   menus.category
 ];
+
+export const playgroundData = [
+  playgroundNode(intro, 'intro', 'Introduction', []),
+  playgroundNode(a, 'a', 'A', [
+    playgroundNode(aa, 'aa', 'AA', [
+      playgroundNode(aa, 'aa', 'AA', []),
+      playgroundNode(ab, 'ab', 'AB', []),
+      playgroundNode(ac, 'ac', 'AC', []),
+    ]),
+    playgroundNode(ab, 'ab', 'AB', []),
+    playgroundNode(ac, 'ac', 'AC', []),
+  ])
+]
+
+export const playgroundParams = generatePlaygroundParams(playgroundData);
+
+export const playgrounComponents = generatePlaygrounComponents(playgroundData);

@@ -1,4 +1,4 @@
-import { ReactElement, JSXElementConstructor } from "react";
+import React, { ReactElement, JSXElementConstructor } from "react";
 import { StaticImageData } from "next/image";
 
 export interface MenuType {
@@ -21,4 +21,11 @@ export interface PostType {
   thumbnail: string;
   summary: string;
   content: string | ReactElement<any, string | JSXElementConstructor<any>>;
+}
+
+export interface PlaygroundNodeType {
+  self: React.FunctionComponent;
+  slug: string;
+  title: string;
+  children: PlaygroundNodeType[];
 }
