@@ -41,9 +41,9 @@ export default function MenuContent({ posts, categories }: ContentProps) {
   };
 
   useEffect(() => {
-    if (search) {
-      setSelected(new Set([search]));
-    }
+    if (!search) return;
+    window.history.pushState({}, '', '/category');
+    setSelected(new Set([search]));
   }, [search])
 
   return (
@@ -66,7 +66,7 @@ export default function MenuContent({ posts, categories }: ContentProps) {
             return null;
           }
           return (
-            <Link key={post.slug} href={`${post.menu}/${post.slug}`} className="group mx-auto max-w-xl w-full flex flex-col items-start" >
+            <Link key={post.slug} href={`/${post.menu}/${post.slug}`} className="group mx-auto max-w-xl w-full flex flex-col items-start" >
               <div className="relative w-full h-56">
                 <Image src={post.thumbnail} alt="post image" fill className="object-cover object-center group-hover:opacity-80" />
               </div>
