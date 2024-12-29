@@ -41,12 +41,7 @@ const InitialThemeScript = () => (
   />
 );
 
-export default async function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-
+export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   // const cookieStore = await cookies();
   // const theme = cookieStore.get('theme')?.value ?? '';
 

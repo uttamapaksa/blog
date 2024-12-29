@@ -17,7 +17,7 @@ export default function Navigation() {
     const darkMode = theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches);
     if (darkMode) {
       document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', '');
+      localStorage.setItem('theme', 'light');
     } else {
       document.documentElement.classList.add('dark');
       localStorage.setItem('theme', 'dark');
@@ -32,7 +32,7 @@ export default function Navigation() {
       localStorage.setItem('theme', 'dark');
     } else {
       document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', '');
+      localStorage.setItem('theme', 'light');
     }
   }, [])
 

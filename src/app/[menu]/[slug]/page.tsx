@@ -8,7 +8,7 @@ export function generateStaticParams() {
   return menuSlugParams;
 }
 
-export default async function PostPage({ params }: { params: Promise<{ menu: string; slug: string }> }) {
+export default async function MenuSlugPage({ params }: { params: Promise<{ menu: string; slug: string }> }) {
   const { menu, slug } = await params;
   const post = await getPostBySlug(menu, slug);
 
