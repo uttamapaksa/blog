@@ -50,6 +50,7 @@ export default async function Layout({ children, params }: LayoutProps) {
             ))}
           </aside>
           <article className="pl-8">
+            <AddressBar segments={segments} />
             {children}
           </article>
         </section>
