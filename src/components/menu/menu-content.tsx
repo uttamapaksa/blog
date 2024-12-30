@@ -48,7 +48,7 @@ export default function MenuContent({ posts, categories }: ContentProps) {
 
   return (
     <>
-      <section className="flex">
+      <section className="flex flex-wrap w-full">
         {categories.map((category) => (
           <div 
             key={category}

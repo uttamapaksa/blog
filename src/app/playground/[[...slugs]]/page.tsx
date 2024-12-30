@@ -1,16 +1,19 @@
 import { notFound } from 'next/navigation';
-import { playgrounComponents } from '@/lib/constants/params';
-import Intro from '@/posts/playgorund/intro';
+import { PlaygroundNodeType } from '@/lib/constants/types';
+import { playgroundNodes } from '@/lib/utils/playground';
 
 export default async function page({ params }: { params: Promise<{ slugs: string[] }> }) {
   const { slugs } = await params;
-  if (!slugs) return (<Intro />)
-  const PlaygroundComponent = playgrounComponents[slugs[slugs.length-1]];
-  if (!PlaygroundComponent) notFound();
-  
+  const slug = slugs ? slugs[slugs.length-1] : 'introduction';
+  const node: PlaygroundNodeType = playgroundNodes[slug];
+  if (!node) notFound();
+
   return (
     <>
-      <PlaygroundComponent />
+      <h2 className='pt-8 pb-12 sm:pb-16 text-xl font-semibold tracking-tight sm:text-2xl'>{node.title}</h2>
+      <main className=''>
+        <node.component />
+      </main>
     </>
-  )
+  );
 }

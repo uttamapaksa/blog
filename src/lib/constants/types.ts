@@ -24,8 +24,8 @@ export interface PostType {
 }
 
 export interface PlaygroundNodeType {
-  self: React.FunctionComponent;
+  component: React.FunctionComponent;
   slug: string;
   title: string;
-  children: PlaygroundNodeType[];
+  childrenSlug: string[];
 }

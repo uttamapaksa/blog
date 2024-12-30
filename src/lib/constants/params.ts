@@ -1,12 +1,5 @@
 import { menus } from '@/lib/constants/paths';
-import { playgroundNode, generatePlaygrounComponents, generatePlaygroundParams } from '@/lib/utils/playground';
-import {
-  intro,
-  a, 
-  aa,
-  ab,
-  ac,
-} from '@/posts/playgorund';
+import { playgroundNodes, generatePlaygroundParams } from '@/lib/utils/playground';
 
 export const menuParams = [
   { menu: 'book' },
@@ -14,7 +7,7 @@ export const menuParams = [
   { menu: 'algorithm' },
   { menu: 'cs' },
   { menu: 'error' }
-]
+];
 
 export const menuSlugParams = [
   { menu: 'algorithm', slug: 'graph' },
@@ -32,7 +25,7 @@ export const menuSlugParams = [
   { menu: 'book', slug: 'walden' },
   { menu: 'book', slug: 'icarus-deception' },
   { menu: 'error', slug: 'nextjs-blog' },
-]
+];
 
 export const homeMenus = [
   menus.book, 
@@ -54,19 +47,10 @@ export const navigations = [
   menus.category
 ];
 
-export const playgroundData = [
-  playgroundNode(intro, 'intro', 'Introduction', []),
-  playgroundNode(a, 'a', 'A', [
-    playgroundNode(aa, 'aa', 'AA', [
-      playgroundNode(aa, 'aa', 'AA', []),
-      playgroundNode(ab, 'ab', 'AB', []),
-      playgroundNode(ac, 'ac', 'AC', []),
-    ]),
-    playgroundNode(ab, 'ab', 'AB', []),
-    playgroundNode(ac, 'ac', 'AC', []),
-  ])
-]
+export const rootNodes = [
+  playgroundNodes.introduction,
+  playgroundNodes.ex1,
+  playgroundNodes.ex2
+];
 
-export const playgroundParams = generatePlaygroundParams(playgroundData);
-
-export const playgrounComponents = generatePlaygrounComponents(playgroundData);
+export const playgroundParams = generatePlaygroundParams(rootNodes);
