@@ -1,5 +1,5 @@
 import { Suspense } from 'react';
-import { menuParams } from '@/lib/constants/params';
+import { menuParams } from '@/lib/constants/menu';
 import { menus } from '@/lib/constants/paths';
 import { getPostsByMenu } from '@/lib/utils/posts';
 import MenuHeader from '@/components/menu/menu-header';

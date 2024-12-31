@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { menuSlugParams } from '@/lib/constants/params';
+import { menuSlugParams } from '@/lib/constants/menu';
 import { getPostBySlug } from '@/lib/utils/posts';
 import { formatDateString } from '@/lib/utils/dates';
 import Category from '@/components/category';

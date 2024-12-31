@@ -2,18 +2,17 @@ import Link from 'next/link';
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react';
 import { ChevronRightIcon } from '@heroicons/react/20/solid';
 import { PlaygroundNodeType } from '@/lib/constants/types';
-import { playgroundNodes } from '@/lib/utils/playground';
+import { playgroundNodes, playgroundPaths } from '@/lib/constants/playground';
 
 interface PlaygroundNodeProps {
   node: PlaygroundNodeType;
-  path: string;
   target: string;
   openSlugs: Set<string>;
 }
 
-export default function PlaygroundNode({ node, path, target, openSlugs }: PlaygroundNodeProps) {
-  const currPath = `${path}/${node.slug}`;
-  const isRoot = path === '';
+export default function PlaygroundNode({ node, target, openSlugs }: PlaygroundNodeProps) {
+  const currPath = playgroundPaths[node.slug];
+  const isRoot = !currPath.includes('/');
   const isTarget = target === node.slug;
 
   return (
@@ -30,7 +29,7 @@ export default function PlaygroundNode({ node, path, target, openSlugs }: Playgr
           </Link>
           <DisclosurePanel className="py-1 pl-6 pr-4 text-sm/5 border-l border-gray-300 dark:border-gray-700">
             {node.childrenSlug.map((childSlug) => (
-              <PlaygroundNode key={childSlug} node={playgroundNodes[childSlug]} path={currPath} target={target} openSlugs={openSlugs} />
+              <PlaygroundNode key={childSlug} node={playgroundNodes[childSlug]} target={target} openSlugs={openSlugs} />
             ))}
           </DisclosurePanel>
         </>

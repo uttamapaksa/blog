@@ -1,5 +1,4 @@
 import { menus } from '@/lib/constants/paths';
-import { playgroundNodes, generatePlaygroundParams } from '@/lib/utils/playground';
 
 export const menuParams = [
   { menu: 'book' },
@@ -46,11 +45,3 @@ export const navigations = [
   menus.error,
   menus.category
 ];
-
-export const rootNodes = [
-  playgroundNodes.introduction,
-  playgroundNodes.ex1,
-  playgroundNodes.ex2
-];
-
-export const playgroundParams = generatePlaygroundParams(rootNodes);

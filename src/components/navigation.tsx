@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon, MoonIcon, SunIcon } from '@heroicons/react/24/outline';
-import { navigations } from '@/lib/constants/params';
+import { navigations } from '@/lib/constants/menu';
 
 export default function Navigation() {
   const pathname = usePathname();

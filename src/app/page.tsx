@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { homeMenus } from '@/lib/constants/params';
+import { homeMenus } from '@/lib/constants/menu';
 
 const Acativate = ['Home', 'Book', 'Algorithm', 'Playground', 'Error', 'Category']
 

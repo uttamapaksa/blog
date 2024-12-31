@@ -1,5 +1,4 @@
 import { Suspense } from 'react';
-import { notFound } from 'next/navigation';
 import { menus } from '@/lib/constants/paths';
 import { getAllPosts } from '@/lib/utils/posts';
 import MenuTitle from '@/components/menu/menu-title';
@@ -8,7 +7,6 @@ import MenuContent from '@/components/menu/menu-content';
 export default async function CategoryPage() {
   const currMenu = menus.category
   const posts = await getAllPosts();
-  if (posts === null) notFound();
   const categories = ['All', ...new Set(posts.map(post => post.category))];
 
   return (

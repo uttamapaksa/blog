@@ -1,12 +1,10 @@
-import { notFound } from 'next/navigation';
 import { PlaygroundNodeType } from '@/lib/constants/types';
-import { playgroundNodes } from '@/lib/utils/playground';
+import { playgroundNodes } from '@/lib/constants/playground';
 
 export default async function page({ params }: { params: Promise<{ slugs: string[] }> }) {
   const { slugs } = await params;
-  const slug = slugs ? slugs[slugs.length-1] : 'introduction';
-  const node: PlaygroundNodeType = playgroundNodes[slug];
-  if (!node) notFound();
+  const target = slugs ? slugs[slugs.length-1] : 'introduction';
+  const node: PlaygroundNodeType = playgroundNodes[target];
 
   return (
     <>
