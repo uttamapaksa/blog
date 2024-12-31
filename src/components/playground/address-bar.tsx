@@ -1,4 +1,4 @@
-import React from "react";
+import { Fragment } from "react";
 import Link from "next/link";
 import { playgroundNodes, playgroundPaths } from "@/lib/constants/playground";
 
@@ -9,12 +9,12 @@ export default function AddressBar({ segments }: { segments: string[] }) {
       <span className="px-2 py-0.5 text-gray-400">Playground</span>
       <span>/</span>
       {segments.map((segment) => (
-        <React.Fragment key={segment}>
+        <Fragment key={segment}>
           <Link href={`/playground/${playgroundPaths[segment]}`} className="rounded-full px-1.5 py-0.5">
             {playgroundNodes[segment].title}
           </Link>
           <span>/</span>
-        </React.Fragment>
+        </Fragment>
       ))}
     </div>
   );

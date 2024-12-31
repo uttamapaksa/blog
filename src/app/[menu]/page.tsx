@@ -7,14 +7,14 @@ import MenuTitle from '@/components/menu/menu-title';
 import MenuContent from '@/components/menu/menu-content';
 
 export function generateStaticParams() {
-  return menuParams
+  return menuParams;
 }
 
 export default async function MenuPage({ params }: { params: Promise<{ menu: string }> }) {
   const { menu } = await params;
-  const currMenu = menus[menu]
+  const currMenu = menus[menu];
   const posts = await getPostsByMenu(menu);
-  const categories = ['All', ...new Set(posts.map(post => post.category))];
+  const categories = ['All', ...new Set(posts.map((post) => post.category))];
 
   return (
     <>
@@ -26,5 +26,5 @@ export default async function MenuPage({ params }: { params: Promise<{ menu: str
         </Suspense>
       </main>
     </>
-    );
+  );
 }
