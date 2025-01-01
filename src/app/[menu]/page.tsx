@@ -6,11 +6,15 @@ import MenuHeader from '@/components/menu/menu-header';
 import MenuTitle from '@/components/menu/menu-title';
 import MenuContent from '@/components/menu/menu-content';
 
+interface MenuPageProps {
+  params: Promise<{ menu: string }>;
+}
+
 export function generateStaticParams() {
   return menuParams;
 }
 
-export default async function MenuPage({ params }: { params: Promise<{ menu: string }> }) {
+export default async function MenuPage({ params }: MenuPageProps) {
   const { menu } = await params;
   const currMenu = menus[menu];
   const posts = await getPostsByMenu(menu);

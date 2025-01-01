@@ -1,12 +1,17 @@
 'use client';
 
+import { usePathname } from "next/navigation";
 import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/react";
 import { ChevronRightIcon } from "@heroicons/react/24/outline";
-import PlaygroundNode from "./playground-node";
 import { rootNodes } from "@/lib/constants/playground";
+import PlaygroundNode from "@/components/playground/playground-node";
 
-export default function IndexBar({ target, openSlugs }) {
-  
+export default function PlaygroundNav() {
+  const pathname = usePathname();
+  const paths = (pathname !== '/playground' ? pathname : 'introduction').split('/');
+  const target = paths[paths.length-1];
+  const openSlugs = new Set(paths);
+
   return (
     <>
       {/* mobile index */}

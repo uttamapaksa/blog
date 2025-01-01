@@ -2,7 +2,11 @@ import { Fragment } from "react";
 import Link from "next/link";
 import { playgroundNodes, playgroundPaths } from "@/lib/constants/playground";
 
-export default function AddressBar({ segments }: { segments: string[] }) {
+interface BreadcrumbNavProps {
+  segments: string[];
+}
+
+export default function BreadcrumbNav({ segments }: BreadcrumbNavProps) {
   
   return (
     <div className="flex flex-wrap gap-x-1 py-3 text-sm font-medium">

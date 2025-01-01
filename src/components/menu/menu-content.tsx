@@ -8,12 +8,12 @@ import { PostType } from '@/lib/constants/types';
 import { formatDateString } from '@/lib/utils/dates';
 import Category from '../category';
 
-interface ContentProps {
+interface MenuContentProps {
   posts: PostType[];
   categories: string[];
 }
 
-export default function MenuContent({ posts, categories }: ContentProps) {
+export default function MenuContent({ posts, categories }: MenuContentProps) {
   const searchParams = useSearchParams();
   const search = searchParams.get('search');
   const [selected, setSelected] = useState<Set<string>>(new Set(categories));

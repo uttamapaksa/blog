@@ -4,11 +4,15 @@ import { getPostBySlug } from '@/lib/utils/posts';
 import { formatDateString } from '@/lib/utils/dates';
 import Category from '@/components/category';
 
+interface MenuSlugPageProps {
+  params: Promise<{ menu: string; slug: string }>;
+}
+
 export function generateStaticParams() {
   return menuSlugParams;
 }
 
-export default async function MenuSlugPage({ params }: { params: Promise<{ menu: string; slug: string }> }) {
+export default async function MenuSlugPage({ params }: MenuSlugPageProps) {
   const { menu, slug } = await params;
   const post = await getPostBySlug(menu, slug);
 

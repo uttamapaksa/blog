@@ -4,7 +4,7 @@ title: "Next.js 블로그"
 datetime: "2024-12-23"
 category: "Error"
 thumbnail: "/favicon-wide.jpg"
-source: "https://product.kyobobook.co.kr/detail/S000001766397"
+source: ""
 summary: "uttamapaksa.me"
 ---
 
@@ -62,4 +62,8 @@ Next.js에서 `notFound()`를 호출하거나 에러가 감지되면 에러 페�
 
 #### Link 태그 경로 누적 오류 ✅ <small className="text-gray-500">24.12.29.</small>
 `<Link />`, `<a />`의 href나 `<img />`의 src에서 절대 경로를 사용하려면 맨 앞에 루트 디렉토리를 나타내는 `/`를 붙여줘야 한다. `/`로 시작하지 않으면 상대 경로로 인식해 경로가 누적된다. 브라우저 주소창의 경우 full absolute URLs을 적어야 하지만 HTML 문서의 경우 브라우저가 문서의 경로 context를 갖고 있기 때문에 relative URLs를 쓸 수 있다.
+<br/>
+
+#### 로컬 내비게이션 Disclosure와 주소창 동기화 ✅ <small className="text-gray-500">24.01.01.</small>
+사이드바에 디스클로저 버튼으로 트리 형태의 로컬 내비게이션을 만들었다. 1) 각 노드를 클릭하면 여닫기가 되면서 페이지 내용이 변경되고 2) 주소창으로 접근했을 때도 경로의 노드들이 모두 열리도록 해야했다. 두 가지 난점이 있었다. 첫째, Headless UI의 컴포넌트에서는 여닫기 상태를 제어할 수 없었다. 'Render Props Pattern'과 'Compound Component Pattern'을 활용해 Custom UI를 만들어서 해결했다. Headless UI와 유사한 문법으로 작성하면서도 setter에 접근할 수 있도록 변경했다. 둘째, URL이 바뀔 때마다 노드들이 전부 전체 리렌더링 되어 상태 유지가 안되었다. `[[...slugs]]` 경로에 있어서 발생한 문제였고 상위 폴더의 `layout.tsx`에 옮겼더니 해결됐다. 또한 라우트에 포함되는 노드들을 열리도록 하는 로직은 `useEffect`로 flag를 처리해 처음 한 번만 작동하도록 했다. 그렇지 않으면 이미 선택된 노드를 닫아도 -> 라우트를 읽고 -> 다시 열어서 영원히 닫을 수 없다. 이런 문제들에 `Custom Hooks`를 사용해도 좋다고 하니 다음번에 활용해 봐야겠다.
 <br/>
