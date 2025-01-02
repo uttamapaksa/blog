@@ -27,23 +27,20 @@ export default async function SlugsPage({ params }: SlugsPageProps) {
         <node.component />
       </article>
       <br /><br /><br />
-      <div className='text-sm'>
-        {node.childrenSlug.map((childSlug)=> {
-          const child = playgroundNodes[childSlug];
-          return (
+      {node.childrenSlug.map((childSlug)=> {
+        const child = playgroundNodes[childSlug];
+        return (
+          <Link key={childSlug} href={`/playground/${playgroundPaths[childSlug]}`}>
             <div
-              key={childSlug}
               className='text-sm m-3 p-4 rounded-md overflow-hidden cursor:pointer
               border border-gray-600 text-gray-600 dark:border-gray-300 dark:text-gray-300
-            hover:text-indigo-800 hover:border-indigo-800 dark:hover:text-indigo-400 dark:hover:border-indigo-400'
-            >
-              <Link href={`/playground/${playgroundPaths[childSlug]}`}>
+              hover:text-indigo-800 hover:border-indigo-800 dark:hover:text-indigo-400 dark:hover:border-indigo-400'
+              >
                 {child.title} &ensp;&raquo;
-              </Link>
             </div>
-          );
-        })}
-      </div>
+          </Link>
+        );
+      })}
     </div>
   );
 }
