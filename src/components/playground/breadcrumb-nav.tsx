@@ -10,7 +10,7 @@ export default function BreadcrumbNav({ segments }: BreadcrumbNavProps) {
   
   return (
     <div className="flex flex-wrap gap-x-1 py-3 text-sm font-medium">
-      <span className="px-2 py-0.5 text-gray-400">Playground</span>
+      <span className="pr-2 py-0.5 text-gray-400">Playground</span>
       <span>/</span>
       {segments.map((segment) => (
         <Fragment key={segment}>

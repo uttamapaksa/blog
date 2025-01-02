@@ -24,7 +24,7 @@ export default function PlaygroundNode({ node, target, openSlugs }: PlaygroundNo
   }, []);
 
   return (
-    <Disclosure className="py-1">
+    <Disclosure className="py-1 font-semibold tracking-tight">
       {({ open, setOpen }) => {
         if (first && !open && openSlugs.has(node.slug)) {
           setOpen(true);
@@ -35,12 +35,13 @@ export default function PlaygroundNode({ node, target, openSlugs }: PlaygroundNo
             <>
               <Link href={`/playground/${nodePath}`}>
                 <DisclosureButton setOpen={setOpen} className="group flex w-full items-center justify-between hover:underline hover:opacity-70">
-                  <span className={`py-1 text-sm/6 font-semibold
-                    ${isTarget ? 'text-blue-500' : isRoot ? '' : 'font-normal text-gray-700 dark:text-gray-400'}`}>{node.title}</span>
+                  <span className={`py-1 ${isTarget ? 'text-blue-500' : isRoot ? '' : 'text-gray-700 dark:text-gray-400'}`}>
+                    {node.title}
+                  </span>
                   <ChevronRightIcon className={`size-5 ${open && 'rotate-90'}`}/>
                 </DisclosureButton>
               </Link>
-              <DisclosurePanel open={open} className="py-1 pl-6 pr-4 text-sm/5 border-l border-gray-300 dark:border-gray-700">
+              <DisclosurePanel open={open} className="py-1 pl-6 pr-4 border-l border-gray-300 dark:border-gray-700">
                 {node.childrenSlug.map((childSlug) => (
                   <PlaygroundNode key={childSlug} node={playgroundNodes[childSlug]} target={target} openSlugs={openSlugs} />
                 ))}
@@ -49,8 +50,9 @@ export default function PlaygroundNode({ node, target, openSlugs }: PlaygroundNo
             :
             <>
               <Link href={`/playground/${nodePath}`} className="flex w-full items-center justify-between hover:underline hover:opacity-70">
-                <span className={`py-1 text-sm/6 font-semibold
-                  ${isTarget ? 'text-blue-500' : isRoot ? '' : 'font-normal text-gray-700 dark:text-gray-400'}`}>{node.title}</span>
+                <span className={`py-1 ${isTarget ? 'text-blue-500' : isRoot ? '' : 'font-medium text-gray-700 dark:text-gray-400'}`}>
+                  {node.title}
+                </span>
               </Link>
             </>
           )     
