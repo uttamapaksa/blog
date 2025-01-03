@@ -28,20 +28,20 @@ export const menuSlugParams = [
 
 export const homeMenus = [
   menus.book, 
-  menus.react,
   menus.algorithm,
+  menus.react,
   menus.cs,
   menus.playground,
-  menus.error
+  menus.error,
 ];
 
 export const navigations = [
   menus.home,
   menus.book,
-  // menus.react,
   menus.algorithm,
+  // menus.react,
   // menus.cs,
   menus.playground,
   menus.error,
-  menus.category
+  menus.category,
 ];
