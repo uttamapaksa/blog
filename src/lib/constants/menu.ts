@@ -2,8 +2,8 @@ import { menus } from '@/lib/constants/paths';
 
 export const menuParams = [
   { menu: 'book' },
-  { menu: 'react' },
   { menu: 'algorithm' },
+  // { menu: 'react' },
   { menu: 'cs' },
   { menu: 'error' }
 ];
@@ -23,13 +23,15 @@ export const menuSlugParams = [
   { menu: 'book', slug: 'design-of-everyday-things' },
   { menu: 'book', slug: 'walden' },
   { menu: 'book', slug: 'icarus-deception' },
+  { menu: 'book', slug: 'richest-man-in-babylon' },
+  { menu: 'book', slug: 'linchpin' },
   { menu: 'error', slug: 'nextjs-blog' },
 ];
 
 export const homeMenus = [
   menus.book, 
   menus.algorithm,
-  menus.react,
+  // menus.react,
   menus.cs,
   menus.playground,
   menus.error,

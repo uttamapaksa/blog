@@ -1,11 +1,8 @@
 import { PlaygroundNodeType } from './types';
 import {
   Introduction,
-  Example1,
-  Example2,
-  SubExample1, 
-  SubExample2, 
-  SubExample3 
+  UIComponent,
+  DisclosureNode,
 } from '@/posts/playgorund';
 
 function generatePlaygroundParams(rootNodes: PlaygroundNodeType[]) {
@@ -32,17 +29,13 @@ function generateNode(
 
 export const playgroundNodes = {
   'introduction': generateNode(Introduction, 'introduction', 'Introduction', []),
-  'ex1': generateNode(Example1, 'ex1', 'Example 1', ['sub-ex1', 'sub-ex2', 'sub-ex3']),
-  'ex2': generateNode(Example2, 'ex2', 'Example 2', []),
-  'sub-ex1': generateNode(SubExample1, 'sub-ex1', 'Sub Example 1', []),
-  'sub-ex2': generateNode(SubExample2, 'sub-ex2', 'Sub Example 2', []),
-  'sub-ex3': generateNode(SubExample3, 'sub-ex3', 'Sub Example 3', [])
+  'ui': generateNode(UIComponent, 'ui', 'UI Component', ['disclosureNode']),
+  'disclosureNode': generateNode(DisclosureNode, 'disclosureNode', 'Disclosure', []),
 };
 
 export const rootNodes = [
   playgroundNodes.introduction,
-  playgroundNodes.ex1,
-  playgroundNodes.ex2
+  playgroundNodes.ui,
 ];
 
 export const playgroundParams = generatePlaygroundParams(rootNodes);

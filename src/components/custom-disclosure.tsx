@@ -5,6 +5,7 @@ import { ReactNode, useState } from 'react';
 type DisclosureProps = {
   children: (props: { open: boolean; setOpen: React.Dispatch<React.SetStateAction<boolean>>; }) => ReactNode;
   className?: string;
+  defaultOpen?: boolean;
 };
 
 type DisclosureButtonProps = {
@@ -19,8 +20,8 @@ type DisclosurePanelProps = {
   open: boolean;
 };
 
-const Disclosure = ({ children, className }: DisclosureProps) => {
-  const [open, setOpen] = useState(false);
+const Disclosure = ({ children, className, defaultOpen }: DisclosureProps) => {
+  const [open, setOpen] = useState(defaultOpen || false);
   
   return (
     <div className={className}>{children({ open, setOpen })}</div>
