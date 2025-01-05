@@ -297,7 +297,7 @@ export default function DisclosureNode() {
           </>
         )}
       </Disclosure>
-      <br />
+      <br /><br />
       <div className='prose'>
         <CodeBlock lang="ts" code={disclosureCode} />
         <CodeBlock lang="ts" code={disclosureNodeCode} />
