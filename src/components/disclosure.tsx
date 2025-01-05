@@ -20,8 +20,8 @@ type DisclosurePanelProps = {
   open: boolean;
 };
 
-const Disclosure = ({ children, className, defaultOpen }: DisclosureProps) => {
-  const [open, setOpen] = useState(defaultOpen || false);
+const Disclosure = ({ children, className, defaultOpen = false }: DisclosureProps) => {
+  const [open, setOpen] = useState(defaultOpen);
   
   return (
     <div className={className}>{children({ open, setOpen })}</div>
@@ -33,7 +33,9 @@ const DisclosureButton = ({ children, className, setOpen }: DisclosureButtonProp
 );
 
 const DisclosurePanel = ({ children, className, open }: DisclosurePanelProps) => (
-  open ? <div className={className}>{children}</div> : null
-);
+  <div className={className} style={{ display: open ? ''  : 'none' }}>
+    {children}
+  </div>
+)
 
 export { Disclosure, DisclosureButton, DisclosurePanel };
