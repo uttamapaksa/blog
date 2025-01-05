@@ -2,6 +2,7 @@ import { PlaygroundNodeType } from './types';
 import Introduction from '@/posts/playgorund/introduction';
 import UIComponent from '@/posts/playgorund/ui-component';
 import DisclosureNode from '@/posts/playgorund/disclosure-node';
+import CodeBlockNode from '@/posts/playgorund/codeblock-node';
 
 function generatePlaygroundParams(rootNodes: PlaygroundNodeType[]) {
   const result: { slugs: string[] }[] = [];
@@ -27,8 +28,9 @@ function generateNode(
 
 export const playgroundNodes = {
   'introduction': generateNode(Introduction, 'introduction', 'Introduction', []),
-  'ui': generateNode(UIComponent, 'ui', 'UI Component', ['disclosure']),
+  'ui': generateNode(UIComponent, 'ui', 'UI Component', ['disclosure', 'codeblock']),
   'disclosure': generateNode(DisclosureNode, 'disclosure', 'Disclosure', []),
+  'codeblock': generateNode(CodeBlockNode, 'codeblock', 'Code Block', []),
 };
 
 export const rootNodes = [

@@ -5,7 +5,8 @@ export const menuParams = [
   { menu: 'algorithm' },
   // { menu: 'react' },
   { menu: 'cs' },
-  { menu: 'error' }
+  { menu: 'error' },
+  { menu: 'category' },
 ];
 
 export const menuSlugParams = [
@@ -26,6 +27,7 @@ export const menuSlugParams = [
   { menu: 'book', slug: 'richest-man-in-babylon' },
   { menu: 'book', slug: 'linchpin' },
   { menu: 'error', slug: 'nextjs-blog' },
+  { menu: 'error', slug: 'crypto-reflection' },
 ];
 
 export const homeMenus = [
