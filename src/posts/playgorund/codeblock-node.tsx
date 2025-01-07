@@ -2,10 +2,10 @@
 
 import { useState, useRef, ChangeEvent } from 'react';
 import { Description, Field, Select, Textarea } from '@headlessui/react';
-import { ChevronDownIcon } from '@heroicons/react/20/solid';
 import CodeBlock from '@/components/codeblock';
 
 interface SelectorProps {
+  className?: string; 
   values: string[][];
   setSelected: React.Dispatch<React.SetStateAction<string>>;
 }
@@ -29,18 +29,18 @@ const themeValues = [
   ['plastic', 'Plastic'],
 ];
 
-const Selector = ({ values, setSelected }: SelectorProps) => {
+const Selector = ({ className, values, setSelected }: SelectorProps) => {
   const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
     setSelected(e.target.value);
   };
 
   return (
-    <div className="w-1/2">
+    <div className={className}>
       <Field>
         <div className="relative">
           <Select
             onChange={handleChange}
-            className="mt-3 w-full appearance-none rounded-lg border-none py-1.5 px-3 text-sm/6 bg-gray-200 dark:bg-gray-800"
+            className="mt-3 rounded-lg border-none py-1.5 px-3 text-sm/6 bg-gray-200 dark:bg-gray-800"
           >
             {values.map(([val, title]) => (
               <option key={val} value={val}>
@@ -48,7 +48,6 @@ const Selector = ({ values, setSelected }: SelectorProps) => {
               </option>
             ))}
           </Select>
-          <ChevronDownIcon className="absolute top-5 right-2.5 size-4" aria-hidden="true" />
         </div>
       </Field>
     </div>
@@ -71,19 +70,19 @@ export default function CodeBlockNode() {
 
   return (
     <>
-      <div className="w-full max-w-md px-4">
+      <div className="px-4">
         <Field>
           <Description className="text-sm/6 text-black/50 dark:text-white/50">Language / Theme</Description>
-          <div className="flex gap-x-5">
+          <div className="flex">
             <Selector values={languageValues} setSelected={setLang} />
-            <Selector values={themeValues} setSelected={setTheme} />
+            <Selector className='ps-2' values={themeValues} setSelected={setTheme} />
           </div>
           <Description className="mt-12 text-sm/6 text-black/50 dark:text-white/50">
             Feel free to write anything in the code block
           </Description>
           <Textarea
             ref={textareaRef}
-            className="mt-3 block w-full resize-none rounded-lg border-none bg-black/5 dark:bg-white/5 py-1.5 px-3 text-sm/6
+            className="mt-3 w-full rounded-lg border-none bg-black/5 dark:bg-white/5 py-1.5 px-3 text-sm/6
               focus:outline-none data-[focus]:outline-2 data-[focus]:-outline-offset-2 data-[focus]:outline-white/25"
             value={code}
             onChange={handleChange}

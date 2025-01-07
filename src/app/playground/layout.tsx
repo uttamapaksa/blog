@@ -3,7 +3,7 @@ import MenuHeader from "@/components/menu/menu-header";
 import MenuTitle from "@/components/menu/menu-title";
 import PlaygroundNav from "@/components/playground/playground-nav";
 
-export default async function Layout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default function Layout({ children }: Readonly<{ children: React.ReactNode }>) {
   const currMenu = menus.playground;
 
   return (

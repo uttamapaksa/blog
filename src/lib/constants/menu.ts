@@ -3,7 +3,6 @@ import { menus } from '@/lib/constants/paths';
 export const menuParams = [
   { menu: 'book' },
   { menu: 'algorithm' },
-  // { menu: 'react' },
   { menu: 'cs' },
   { menu: 'error' },
   { menu: 'category' },
@@ -33,7 +32,6 @@ export const menuSlugParams = [
 export const homeMenus = [
   menus.book, 
   menus.algorithm,
-  // menus.react,
   menus.cs,
   menus.playground,
   menus.error,
@@ -43,8 +41,7 @@ export const navigations = [
   menus.home,
   menus.book,
   menus.algorithm,
-  // menus.react,
-  // menus.cs,
+  menus.cs,
   menus.playground,
   menus.error,
   menus.category,

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-// import { cookies } from "next/headers";
 import localFont from "next/font/local";
+// import { cookies } from "next/headers";
+import { Analytics } from '@vercel/analytics/next';
 import "./globals.css";
 import Navigation from "../components/navigation";
 
@@ -52,6 +53,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
         <InitialThemeScript />
         <Navigation />
         {children}
+        <Analytics />
       </body>
     </html>
   );

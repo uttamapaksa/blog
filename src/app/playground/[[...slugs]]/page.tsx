@@ -23,7 +23,7 @@ export default async function SlugsPage({ params }: SlugsPageProps) {
     <div className="px-8 flex-1">
       <BreadcrumbNav segments={segments} />
       <h2 className='pt-8 pb-12 text-xl font-semibold tracking-tight sm:text-2xl'>{node.title}</h2>
-      <article className=''>
+      <article>
         <node.component />
       </article>
       <br /><br /><br />
