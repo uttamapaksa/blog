@@ -1,8 +1,9 @@
 import { PlaygroundNodeType } from './types';
-import Introduction from '@/posts/playgorund/introduction';
-import UIComponent from '@/posts/playgorund/ui-component';
-import DisclosureNode from '@/posts/playgorund/disclosure-node';
-import CodeBlockNode from '@/posts/playgorund/codeblock-node';
+import Introduction from '@/components/playground/introduction';
+import UIComponent from '@/components/playground/ui-component';
+import DisclosureNode from '@/components/playground/disclosure-node';
+import CodeBlockNode from '@/components/playground/codeblock-node';
+import StackedBarNode from '@/components/playground/stackedbar-node';
 
 function generatePlaygroundParams(rootNodes: PlaygroundNodeType[]) {
   const result: { slugs: string[] }[] = [];
@@ -28,9 +29,12 @@ function generateNode(
 
 export const playgroundNodes = {
   'introduction': generateNode(Introduction, 'introduction', 'Introduction', []),
-  'ui': generateNode(UIComponent, 'ui', 'UI Component', ['disclosure', 'codeblock']),
+  'ui': generateNode(UIComponent, 'ui', 'UI Component', [
+    'disclosure', 'codeblock', 'stackedbar'
+  ]),
   'disclosure': generateNode(DisclosureNode, 'disclosure', 'Disclosure', []),
   'codeblock': generateNode(CodeBlockNode, 'codeblock', 'Code Block', []),
+  'stackedbar': generateNode(StackedBarNode, 'stackedbar', 'Stacked Bar', []),
 };
 
 export const rootNodes = [

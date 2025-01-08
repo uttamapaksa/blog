@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { PlaygroundNodeType } from '@/lib/constants/types';
 import { playgroundNodes, playgroundParams, playgroundPaths } from '@/lib/constants/playground';
 import BreadcrumbNav from '@/components/playground/breadcrumb-nav';
-import ErrorNode from '@/posts/playgorund/error-node';
+import ErrorNode from '@/components/playground/error-node';
 
 interface SlugsPageProps {
   params: Promise<{ slugs: string[] }>;
