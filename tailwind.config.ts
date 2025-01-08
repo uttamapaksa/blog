@@ -3,9 +3,9 @@ import typography from '@tailwindcss/typography';
 
 const config: Config = {
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx,jpg,svg}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx,jpg,svg}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx,jpg,svg}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx,jpg,webp,svg}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx,jpg,webp,svg}",
+    "./src/posts/**/*.{js,ts,jsx,tsx,mdx,jpg,webp,svg}",
   ],
   darkMode: 'selector',
   theme: {

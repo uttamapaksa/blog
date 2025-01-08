@@ -71,3 +71,7 @@ Next.js에서 `notFound()`를 호출하거나 에러가 감지되면 에러 페�
 #### 코드 블록 컴포넌트 ✅ <small className="text-gray-500">24.01.05.</small>
 `next-mdx-remote`의 `compileMDX` 함수를 활용해, 문자열을 넣으면 코드 블록으로 반환하는 컴포넌트를 만들었다. `compileMDX`는 비동기 함수라서 동기적으로 렌더링되는 리액트 클라이언트 컴포넌트에서는 오류가 난다. `useEffect`안에서 해야 안전하게 렌더링할 수 있다. 즉시 실행 함수로 만들어서 `useState`에 값을 넣었다. 멀티 라인이니까 백틱 3개(\`\`\`)에 이스케이프(특수 문자를 일반 문자처럼 쓰는 것)를 다 붙여야했다.
 <br/>
+
+#### 테일윈드 동적 스타일링 미적용 ✅ <small className="text-gray-500">24.01.08.</small>
+Tailwind CSS는 빌드 시점에 정적 클래스를 CSS로 변환하는데, 동적 클래스는 해당 시점에 값을 알 수 없기 때문에 처리하지 못한다. Styled-Components 같은 CSS-in-JS만 쓰다보니 동적 스타일링이 당연한 줄 알았다. `tailwind.config.ts`에 `content` 속성에 경로를 넣어주어야 한다. 그러면 Tailwind는 JIT 모드라고 해서 작성된 경로들의 모든 클래스들을 추척하고 런타임에 실시간으로 클래스를 생성해 페이지에 반영한다.
+<br/>
