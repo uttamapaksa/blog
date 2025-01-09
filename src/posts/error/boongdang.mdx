@@ -1,0 +1,13 @@
+---
+id: 3
+title: "가제 붕당"
+datetime: "2025-01-09"
+category: "Error"
+thumbnail: "/temp-boongdang-wide.jpg"
+source: "Bing Image Creator"
+summary: ""
+---
+
+#### Spring Boot 실행 후 바로 종료되는 문제 <small className="text-gray-500">25.01.09.</small>
+Dependency에 `spring-boot-starter-web`을 설정하지 않았기 때문이다. 해당 의존성을 설정하지 않으면 Spring Boot에 내장된 Tomcat 서버가 자동으로 실행되지 않기 때문에, main()이 블로킹되지 않고 그냥 실행을 마치고 종료된다.
+<br/>
