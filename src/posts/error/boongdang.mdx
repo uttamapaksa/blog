@@ -5,9 +5,13 @@ datetime: "2025-01-09"
 category: "Error"
 thumbnail: "/temp-boongdang-wide.jpg"
 source: "Bing Image Creator"
-summary: ""
+summary: "균형과 깊이가 있는 찬반 플랫폼"
 ---
 
-#### Spring Boot 실행 후 바로 종료되는 문제 <small className="text-gray-500">25.01.09.</small>
-Dependency에 `spring-boot-starter-web`을 설정하지 않았기 때문이다. 해당 의존성을 설정하지 않으면 Spring Boot에 내장된 Tomcat 서버가 자동으로 실행되지 않기 때문에, main()이 블로킹되지 않고 그냥 실행을 마치고 종료된다.
+#### Spring Boot 실행 후 바로 종료되는 문제 ✅ <small className="text-gray-500">25.01.09.</small>
+Dependency에 `spring-boot-starter-web`을 설정하지 않았기 때문이다. 해당 의존성을 설정하지 않으면 Spring Boot가 내장된 Tomcat 서버를 자동으로 실행하지 않는다. Tomcat 서버에 의해 main thread가 블로킹되지 않아서 main()은 단순히 실행을 마치고 종료된다.
+<br/>
+
+#### GitHun Status 서버 장애 확인 ✅ <small className="text-gray-500">25.01.14.</small>
+갑자기 git push/pull이 되지 않아서 원인을 찾다가 실패하고 clone조차 되지 않았다. 터미널에는 처음 보는 깃허브 서버 에러 메시지가 나왔다. GitHub는 GitHub Status 사이트를 통해 서비스 운영 상태를 공유한다. 여기서 장애 알림이 뜬 것을 확인하고 풀린 후에 해보니 다시 잘 됐다.
 <br/>
