@@ -13,5 +13,9 @@ Dependency에 `spring-boot-starter-web`을 설정하지 않았기 때문이다. 
 <br/>
 
 #### GitHun Status 서버 장애 확인 ✅ <small className="text-gray-500">25.01.14.</small>
-갑자기 git push/pull이 되지 않아서 원인을 찾다가 실패하고 clone조차 되지 않았다. 터미널에는 처음 보는 깃허브 서버 에러 메시지가 나왔다. GitHub는 GitHub Status 사이트를 통해 서비스 운영 상태를 공유한다. 여기서 장애 알림이 뜬 것을 확인하고 풀린 후에 해보니 다시 잘 됐다.
+GitHub는 GitHub Status 사이트를 통해 서비스 운영 상태를 공유한다. 여기서 장애 알림이 떴다면 일부 기능이 정상 작동하지 않을 수 있다. 갑자기 git push/pull이 되지 않아서 원인을 찾다가 실패하고 clone조차 되지 않았다. 터미널에는 처음 보는 깃허브 서버 에러 메시지가 나왔다. GitHub Status에서 장애 상태가 풀린 것을 확인한 뒤에 해보니 다시 잘 됐다. 
+<br/>
+
+#### 사이드바가 다른 요소에 가려지는 문제 ✅ <small className="text-gray-500">25.01.17.</small>
+사이드바의 position 속성이 기본값 `static`이었기 때문이다. `z-index`와 `position: relative`를 추가해 해결했다. CSS의 `z-index`는 position 속성 중 `relative`, `absoulte`, `sticky`에만 적용(새로운 stacking context가 생성)된다. 그리고 이에 해당하는 요소는 `static`인 요소보다 기본적으로 위에 쌓이게 된다.
 <br/>
