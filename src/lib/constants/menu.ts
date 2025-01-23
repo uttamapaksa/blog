@@ -29,6 +29,7 @@ export const menuSlugParams = [
   { menu: 'error', slug: 'nextjs-blog' },
   { menu: 'error', slug: 'crypto-reflection' },
   { menu: 'error', slug: 'boongdang' },
+  { menu: 'error', slug: 'binance-btcusdt' },
 ];
 
 export const homeMenus = [

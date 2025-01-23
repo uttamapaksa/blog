@@ -1,0 +1,12 @@
+---
+id: 4
+title: "Binance BTCUSDT 모니터링"
+datetime: "2025-01-23"
+category: "Error"
+thumbnail: "https://images.unsplash.com/photo-1563752377893-817885325a2e?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+source: "https://unsplash.com/photos/plane-cockpit-QRQHIYyIlp8"
+summary: "바이낸스 비트코인/테더 무기한 선물 거래량"
+---
+
+#### Flask - React 웹소켓 통신 오류 ❌ <small className="text-gray-500">24.01.23.</small>
+바이낸스로부터 선물 거래 데이터를 받는 Flask 백엔드와, 데이터를 그래프로 보여주는 React 프론트엔드를 만들고, 두 서버 간에 웹소켓 통신을 하도록 했다. 바이낸스 공식 라이브러리가 Python과 Java만 지원하기 때문에 간단해 보이는 Flask를 선택했다. 그런데 React 서버와의 웹소켓 통신이 제대로 되지 않았고 CORS 문제도 아니고 자료도 부족하고 Flask도 처음 써보는 터라 난항이었다. 결국 JavaScript를 지원하는 CCXT 라이브러리로 전환하고 백엔드를 더 간단한 Express.js로 구축했다.
