@@ -19,6 +19,7 @@ export interface PostType {
   datetime: Date | string;
   category: string;
   thumbnail: string;
+  source: string;
   summary: string;
   content: string | ReactElement<any, string | JSXElementConstructor<any>>;
 }

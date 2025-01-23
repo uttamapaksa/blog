@@ -25,8 +25,10 @@ export const menuSlugParams = [
   { menu: 'book', slug: 'icarus-deception' },
   { menu: 'book', slug: 'richest-man-in-babylon' },
   { menu: 'book', slug: 'linchpin' },
+  { menu: 'book', slug: '30-lessons-for-living' },
   { menu: 'error', slug: 'nextjs-blog' },
   { menu: 'error', slug: 'crypto-reflection' },
+  { menu: 'error', slug: 'boongdang' },
 ];
 
 export const homeMenus = [

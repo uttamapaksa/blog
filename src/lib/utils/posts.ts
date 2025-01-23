@@ -31,6 +31,7 @@ export async function getAllPosts(): Promise<PostType[]> {
               datetime: frontmatter.datetime,
               category: frontmatter.category,
               thumbnail: frontmatter.thumbnail,
+              source: frontmatter.source,
               summary: frontmatter.summary,
               content: ''
             };
@@ -67,6 +68,7 @@ export async function getPostsByMenu(menu: string): Promise<PostType[]> {
           datetime: frontmatter.datetime,
           category: frontmatter.category,
           thumbnail: frontmatter.thumbnail,
+          source: frontmatter.source,
           summary: frontmatter.summary,
           content: ''
         };
@@ -104,6 +106,7 @@ export async function getPostBySlug(menu: string, slug: string): Promise<PostTyp
       datetime: frontmatter.datetime,
       category: frontmatter.category,
       thumbnail: frontmatter.thumbnail,
+      source: frontmatter.source,
       summary: frontmatter.summary,
       content,
     };

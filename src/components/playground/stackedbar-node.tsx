@@ -1,6 +1,6 @@
 'use client';
 
-import { SetStateAction, useEffect, useState } from 'react';
+import { SetStateAction, useState } from 'react';
 
 export default function StackedBarNode() {
   const [value1, setValue1] = useState(0);
@@ -11,10 +11,6 @@ export default function StackedBarNode() {
     const value = parseInt(e.target.value);
     setter(isNaN(value) ? 0  : value);
   };
-
-  useEffect(() => {
-    console.log(value1, value2, value3);
-  }, [value1, value2, value3])
 
   return (
     <div className='px-5'>
