@@ -1,5 +1,3 @@
-import { menus } from '@/lib/constants/paths';
-
 export const menuParams = [
   { menu: 'book' },
   { menu: 'algorithm' },
@@ -30,22 +28,4 @@ export const menuSlugParams = [
   { menu: 'error', slug: 'crypto-reflection' },
   { menu: 'error', slug: 'boongdang' },
   { menu: 'error', slug: 'binance-btcusdt' },
-];
-
-export const homeMenus = [
-  menus.book, 
-  menus.algorithm,
-  menus.cs,
-  menus.playground,
-  menus.error,
-];
-
-export const navigations = [
-  menus.home,
-  menus.book,
-  menus.algorithm,
-  // menus.cs,
-  menus.playground,
-  menus.error,
-  menus.category,
 ];

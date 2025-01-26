@@ -1,6 +1,7 @@
 import type { MenuType } from "./types";
 import { BookMenuImg, ReactMenuImg, AlgorithmMenuImg, CSMenuImg, PlaygroundMenuImg, ErrorMenuImg, NotFoundMenuImg } from "public/menus"
 
+
 export const menus: Record<string, MenuType> = {
   home: {  // url, directory
     id: 1,
@@ -84,3 +85,23 @@ export const menus: Record<string, MenuType> = {
     source: 'https://unsplash.com/photos/man-in-blue-shirt-and-black-pants-standing-on-water-during-daytime-Mv4r82sR-dA',
   },
 };
+
+
+export const homeMenus = [
+  menus.book, 
+  menus.algorithm,
+  menus.cs,
+  menus.playground,
+  menus.error,
+];
+
+
+export const navigations = [
+  menus.home,
+  menus.book,
+  menus.algorithm,
+  // menus.cs,
+  menus.playground,
+  menus.error,
+  menus.category,
+];

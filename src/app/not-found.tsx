@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { menus } from '@/lib/constants/paths';
+import { menus } from '@/lib/constants/menus';
 
 export default function NotFound() {
   return (

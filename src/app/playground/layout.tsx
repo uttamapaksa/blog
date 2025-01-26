@@ -1,4 +1,4 @@
-import { menus } from "@/lib/constants/paths";
+import { menus } from "@/lib/constants/menus";
 import MenuHeader from "@/components/menu/menu-header";
 import MenuTitle from "@/components/menu/menu-title";
 import PlaygroundNav from "@/components/playground/playground-nav";

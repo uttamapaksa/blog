@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
-import { menuParams } from '@/lib/constants/menu';
-import { menus } from '@/lib/constants/paths';
+import { menuParams } from '@/lib/constants/params';
+import { menus } from '@/lib/constants/menus';
 import { getAllPosts, getPostsByMenu } from '@/lib/utils/posts';
 import MenuHeader from '@/components/menu/menu-header';
 import MenuTitle from '@/components/menu/menu-title';
