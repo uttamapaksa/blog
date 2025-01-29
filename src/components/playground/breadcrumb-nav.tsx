@@ -14,7 +14,7 @@ export default function BreadcrumbNav({ segments }: BreadcrumbNavProps) {
       <span>/</span>
       {segments.map((segment) => (
         <Fragment key={segment}>
-          <Link href={`/playground/${playgroundPaths[segment]}`} className="rounded-full px-1.5 py-0.5">
+          <Link href={`/playground/${playgroundPaths[segment]}`} className="rounded-full px-1.5 py-0.5 hover:underline">
             {playgroundNodes[segment].title}
           </Link>
           <span>/</span>
