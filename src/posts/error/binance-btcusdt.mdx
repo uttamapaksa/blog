@@ -23,3 +23,11 @@ AWS Elastic Beanstalk을 통해 배포한 백엔드가 MongoDB Atlas에 접속�
 #### HTTP 통신 제한 해제 ✅ <small className="text-gray-500">24.01.30.</small>
 'HTTPS-ONLY-MODE'라는 메시지가 뜨면서 서버에 API 요청을 보낼 수 없었다. 브라우저에서 https만 허용하도록 설정해서 생긴 문제였다. 처음엔 AWS에서 강제로 https로 리다이렉트했다고 생각해 인스턴스 보안 그룹의 인바운드 규칙을 HTTP만 허용하도록 바꿨는데 해결되지 않았다. 브라우저의 설정을 변경하니 해결됐다.
 <br/>
+
+#### S3 + CloudFront, Access Denied ✅ <small className="text-gray-500">24.02.01.</small>
+S3와 CloudFront로 배포한 프론트엔드 페이지에서 403 오류가 표시됐다. 버킷 정책도 확인했지만 해결되지 않았다. CloudFront의 Default root object 설정에 index.html을 지정하지 않아 생긴 문제였다. Optional로 되어있지만 S3의 퍼블릭 접근을 차단하고 CloudFront로만 접근하도록 설정했다면 반드시 지정해야 한다. 그렇지 않으면 경로(/)에 맞는 S3의 객체를 찾지 못해 권한 없음 오류를 반환한다.
+<br/>
+
+#### HTTPS - HTTP Mixed Content 오류 ✅ <small className="text-gray-500">24.02.01.</small>
+HTTPS로 로드된 페이지(프론트엔드)에서 HTTP(백엔드)로 리소스를 요청하는 경우 브라우저가 안전을 이유로 차단한다. 당장 백엔드를 HTTPS로 전환하는 것은 부담이어서 CloudFront를 통해 우회적으로 해결했다. EC2 백엔드를 CloudFront를 통해 HTTPS로 제공하면 프론트엔드와 CloudFront는 HTTPS로, CloudFront와 백엔드는 HTTP로 통신하여 백엔드를 HTTPS로 전환하지 않고도 해결할 수 있다. 대신 백엔드의 보안을 위해 퍼블릭 액세스 차단, CORS, 커스텀 헤더 등을 추가 적용했다.
+<br/>
