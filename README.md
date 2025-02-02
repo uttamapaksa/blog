@@ -1,4 +1,4 @@
-# [My blog](https://uttamapaksa.vercel.app/)
+# [My blog](https://uttamapaksa.me/)
 
 Welcome to my personal blog. This blog contains my study notes and books I've read.
 
