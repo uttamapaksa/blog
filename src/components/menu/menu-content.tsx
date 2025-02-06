@@ -74,11 +74,11 @@ export default function MenuContent({ posts, categories }: MenuContentProps) {
                 <time className="text-gray-500 dark:text-gray-400 round-">{formatDateString(post.datetime)}</time>
                 <Category category={post.category} />
               </div>
-              <h3 className="mt-3 line-clamp-2 text-lg/6 font-semibold tracking-tight group-hover:text-gray-400">
+              <h3 className="mt-3 line-clamp-2 text-lg/6 font-semibold tracking-tight dark:group-hover:text-gray-400 group-hover:text-gray-500">
                 {post.title}
               </h3>
               <div className="mt-5 line-clamp-3 text-sm/6 text-gray-600 sm:pe-20 md:pe-0 dark:text-gray-300 group-hover:text-gray-400">
-                {post.summary}
+                {post.link || post.summary}
               </div>
             </Link>
           );

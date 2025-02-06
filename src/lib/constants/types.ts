@@ -21,6 +21,7 @@ export interface PostType {
   thumbnail: string;
   source: string;
   summary: string;
+  link?: string;
   content: string | ReactElement<any, string | JSXElementConstructor<any>>;
 }
 

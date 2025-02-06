@@ -33,6 +33,7 @@ export async function getAllPosts(): Promise<PostType[]> {
               thumbnail: frontmatter.thumbnail,
               source: frontmatter.source,
               summary: frontmatter.summary,
+              link: frontmatter?.link,
               content: ''
             };
           })
@@ -70,6 +71,7 @@ export async function getPostsByMenu(menu: string): Promise<PostType[]> {
           thumbnail: frontmatter.thumbnail,
           source: frontmatter.source,
           summary: frontmatter.summary,
+          link: frontmatter?.link,
           content: ''
         };
       })
@@ -108,6 +110,7 @@ export async function getPostBySlug(menu: string, slug: string): Promise<PostTyp
       thumbnail: frontmatter.thumbnail,
       source: frontmatter.source,
       summary: frontmatter.summary,
+      link: frontmatter?.link,
       content,
     };
     

@@ -3,6 +3,7 @@ import { menuSlugParams } from '@/lib/constants/params';
 import { getPostBySlug } from '@/lib/utils/posts';
 import { formatDateString } from '@/lib/utils/dates';
 import Category from '@/components/category';
+import Link from 'next/link';
 
 interface MenuSlugPageProps {
   params: Promise<{ menu: string; slug: string }>;
@@ -23,7 +24,10 @@ export default async function MenuSlugPage({ params }: MenuSlugPageProps) {
         <Category category={post.category} />
       </section>
       <h1 className="mt-8 text-4xl font-semibold tracking-tight sm:text-5xl">{post.title}</h1>
-      <p className="mt-6 text-lg sm:text-xl/8 text-gray-700 dark:text-gray-200">{post.summary}</p>
+      <p className="mt-6 text-lg sm:text-xl/8 text-gray-700 dark:text-gray-200">
+        {post.summary}&ensp;
+        {post.link && <Link href={post.link} className='hover:underline text-indigo-400'>{post.link}</Link>}
+      </p>
       <div className='flex flex-col items-center mt-6 sm:mt-12'>
         <Image src={post.thumbnail} alt="post image" width={576} height={384} className="max-h-96 object-contain" />
         <div className="flex justify-center mt-2"><span className='text-xs text-gray-500'>{post.source}</span></div>
