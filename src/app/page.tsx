@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { homeMenus } from '@/lib/constants/menus';
 
-const Acativate = ['Home', 'Book', 'Algorithm', 'Playground', 'Error', 'Category']
+const Acativate = ['Home', 'Error', 'Book', 'CS', 'Algorithm', 'Playground', 'Category']
 
 export default function HomePage() {
   return (

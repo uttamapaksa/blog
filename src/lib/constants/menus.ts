@@ -1,5 +1,5 @@
 import type { MenuType } from "./types";
-import { BookMenuImg, ReactMenuImg, AlgorithmMenuImg, CSMenuImg, PlaygroundMenuImg, ErrorMenuImg, NotFoundMenuImg } from "public/menus"
+import { BookMenuImg, AlgorithmMenuImg, CSMenuImg, PlaygroundMenuImg, ErrorMenuImg, NotFoundMenuImg } from "public/menus"
 
 
 export const menus: Record<string, MenuType> = {
@@ -21,15 +21,15 @@ export const menus: Record<string, MenuType> = {
     imageAlt: 'book menu image',
     source: 'https://unsplash.com/photos/wooden-bookcase-filled-with-books-D4YrzSwyIEc',
   },
-  react: {
-    id: 3,
-    name: 'React',
-    title: 'React',
-    href: '/react',
-    imageSrc: ReactMenuImg,
-    imageAlt: 'react menu image',
-    source: 'https://unsplash.com/photos/a-computer-screen-with-a-logo-on-it-xkBaqlcqeb4',
-  },
+  // react: {
+  //   id: 3,
+  //   name: 'React',
+  //   title: 'React',
+  //   href: '/react',
+  //   imageSrc: ReactMenuImg,
+  //   imageAlt: 'react menu image',
+  //   source: 'https://unsplash.com/photos/a-computer-screen-with-a-logo-on-it-xkBaqlcqeb4',
+  // },
   algorithm: {
     id: 4,
     name: 'Algorithm',
@@ -46,7 +46,7 @@ export const menus: Record<string, MenuType> = {
     href: '/cs',
     imageSrc: CSMenuImg,
     imageAlt: 'cs menu image',
-    source: 'https://unsplash.com/photos/astronaut-on-lunar-rover-Ed2AELHKYBw',
+    source: 'https://unsplash.com/photos/nasa-astronaut-performs-extravehicular-activity-gYwfpVI2JzM',
   },
   playground: {
     id: 6,
@@ -88,20 +88,20 @@ export const menus: Record<string, MenuType> = {
 
 
 export const homeMenus = [
-  menus.book, 
-  menus.algorithm,
-  menus.cs,
-  menus.playground,
   menus.error,
+  menus.book, 
+  menus.cs,
+  menus.algorithm,
+  menus.playground,
 ];
 
 
 export const navigations = [
   menus.home,
-  menus.book,
-  menus.algorithm,
-  // menus.cs,
-  menus.playground,
   menus.error,
+  menus.book,
+  menus.cs,
+  menus.algorithm,
+  menus.playground,
   menus.category,
 ];
