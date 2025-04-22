@@ -1,5 +1,5 @@
 ---
-id: 3
+id: 4
 title: "가제 붕당"
 datetime: "2025-01-09"
 category: "Error"
@@ -8,14 +8,22 @@ source: "Bing Image Creator"
 summary: "균형과 깊이가 있는 찬반 플랫폼"
 ---
 
-#### Spring Boot 실행 후 바로 종료되는 문제 ✅ <small className="text-gray-500">25.01.09.</small>
+#### 스프링) Spring Boot 실행 후 바로 종료되는 문제 ✅ <small className="text-gray-500">25.01.09.</small>
 Dependency에 `spring-boot-starter-web`을 설정하지 않았기 때문이다. 해당 의존성을 설정하지 않으면 Spring Boot가 내장된 Tomcat 서버를 자동으로 실행하지 않는다. Tomcat 서버에 의해 main thread가 블로킹되지 않아서 main()은 단순히 실행을 마치고 종료된다.
 <br/>
 
-#### GitHun Status 서버 장애 확인 ✅ <small className="text-gray-500">25.01.14.</small>
-GitHub는 GitHub Status 사이트를 통해 서비스 운영 상태를 공유한다. 여기서 장애 알림이 떴다면 일부 기능이 정상 작동하지 않을 수 있다. 갑자기 git push/pull이 되지 않아서 원인을 찾다가 실패하고 clone조차 되지 않았다. 터미널에는 처음 보는 깃허브 서버 에러 메시지가 나왔다. GitHub Status에서 장애 상태가 풀린 것을 확인한 뒤에 해보니 다시 잘 됐다. 
+#### 깃허브) GitHun Status 서버 장애 확인 ✅ <small className="text-gray-500">25.01.14.</small>
+GitHub는 GitHub Status 사이트를 통해 서비스 운영 상태를 공유한다. 여기서 장애 알림이 떴다면 일부 기능이 정상 작동하지 않을 수 있다. 갑자기 git push/pull이 되지 않아서 원인을 찾다가 실패하고 clone조차 되지 않았다. 터미널에는 처음 보는 깃허브 서버 에러 메시지가 나왔다. GitHub Status에서 장애 상태가 풀린 것을 확인한 뒤에 해보니 다시 잘 됐다.
 <br/>
 
-#### 사이드바가 다른 요소에 가려지는 문제 ✅ <small className="text-gray-500">25.01.17.</small>
+#### CSS) 사이드바가 다른 요소에 가려지는 문제 ✅ <small className="text-gray-500">25.01.17.</small>
 사이드바의 position 속성이 기본값 `static`이었기 때문이다. `z-index`와 `position: relative`를 추가해 해결했다. CSS의 `z-index`는 position 속성 중 `relative`, `absoulte`, `sticky`에만 적용(새로운 stacking context가 생성)된다. 그리고 이에 해당하는 요소는 `static`인 요소보다 기본적으로 위에 쌓이게 된다.
+<br/>
+
+#### 스프링) Invalid bean definition ✅ <small className="text-gray-500">25.04.22.</small>
+MyBatis Mapper 인터페이스가 @Mapper 어노테이션이 아닌 String으로 설정되어 빈 정의가 잘못되었다는 오류가 났다. 아무리 봐도 코드의 문제가 없어서 찾아봤더니 Spring Boot 3과 `mybatis-spring-boot-starter` 라이브러리의 버전 호환성 문제였다. 3.0.3 버전 이상부터 잘 작동한다.
+<br/>
+
+#### 스프링) No serializer found for class ✅ <small className="text-gray-500">25.04.22.</small>
+getter 메서드를 찾지 못해 model 클래스를 직렬화하지 못하는 문제였다. Lombok의 annotation processor 의존성을 추가해 해결했다. 전에 이클립스에서는 설정에서 기본으로 활성화되어 있어서 몰랐다.
 <br/>
