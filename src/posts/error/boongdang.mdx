@@ -27,3 +27,7 @@ MyBatis Mapper 인터페이스가 @Mapper 어노테이션이 아닌 String으로
 #### 스프링) No serializer found for class ✅ <small className="text-gray-500">25.04.22.</small>
 getter 메서드를 찾지 못해 model 클래스를 직렬화하지 못하는 문제였다. Lombok의 annotation processor 의존성을 추가해 해결했다. 전에 이클립스에서는 설정에서 기본으로 활성화되어 있어서 몰랐다.
 <br/>
+
+#### 스프링) ResultMap Not Found ✅ <small className="text-gray-500">25.04.24.</small>
+DB 칼럼은 `kebab-case`이고 스프링 필드는 `camelCase`라서 ResultType, ResultMap을 수정하다 오류기 났다. 다른 필드명을 매핑하는 ResultMap을 XML 파일에 정의해 재사용했다.
+<br/>
