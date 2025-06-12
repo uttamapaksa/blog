@@ -88,20 +88,20 @@ export const menus: Record<string, MenuType> = {
 
 
 export const homeMenus = [
-  menus.error,
   menus.book, 
   menus.cs,
   menus.algorithm,
   menus.playground,
+  menus.error,
 ];
 
 
 export const navigations = [
   menus.home,
-  menus.error,
   menus.book,
   menus.cs,
   menus.algorithm,
   menus.playground,
+  menus.error,
   menus.category,
 ];
